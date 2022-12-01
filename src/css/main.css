@@ -1,0 +1,22 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@700&family=Montserrat&display=swap');
+
+*{
+    margin: 0;
+   padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Montserrat', sans-serif;
+}
+
+
+#mobiside{
+transition: all .3s ease-in-out;
+}
+
+.mobile__menu{
+    border-top: 2px solid black;
+    border-bottom: 2px solid black;
+}
