@@ -13,8 +13,9 @@
     <!-- custom css -->
     <link rel="stylesheet" href="../css/main.css">
     <!-- ckeditor -->
-<script src="ckeditor/ckeditor.js"></script>
-
+<!-- <script src="ckeditor/ckeditor.js"></script>
+<script src="ckfinder/ckfinder.js"></script> -->
+<script type="text/javascript" src="tinymce/tinymce.min.js"></script>
 
     <title>Admin</title>
     <script language=JavaScript>

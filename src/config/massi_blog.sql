@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 05, 2022 at 01:14 PM
+-- Generation Time: Dec 12, 2022 at 04:02 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.1.12
 
@@ -83,7 +83,8 @@ CREATE TABLE `tbl_blog_posts` (
 --
 
 INSERT INTO `tbl_blog_posts` (`id`, `title`, `cat_id`, `cover_image`, `post_content`, `date`) VALUES
-(0, 'Asperiores eligendi quia expedita nihil velit eaque nulla consequuntur ratione nisi culpa iste saepe nam voluptas minima illo,', 2, 'massiblog-5319.png', '<p>Asperiores eligendi quia expedita nihil velit eaque nulla consequuntur ratione nisi</p>\r\n\r\n<p>Natus laborum quos sequi labore voluptate quidem. Cum expedita aut obcaecati similique voluptatum sunt a omnis harum magni cupiditate, quia nemo, rem eveniet doloribus accusantium facilis, voluptates voluptas mollitia voluptatem?</p>\r\n\r\n<p>Dignissimos veniam, mollitia doloremque officiis, exercitationem ipsa dolorem doloribus quisquam eum similique sapiente reprehenderit illo voluptas unde quae voluptatibus ad nemo. Voluptates amet consequatur unde? Est commodi dolorum reprehenderit modi?</p>\r\n\r\n<p>Illo, quis maiores. Expedita repellendus facere impedit sed recusandae sunt similique porro deleniti iusto asperiores, at nesciunt facilis minima itaque! Nobis, sapiente assumenda! Ratione nulla repellendus deleniti adipisci iste quisquam!</p>\r\n\r\n<p>Magni, esse, libero incidunt vel velit voluptatum sed earum saepe, harum eos labore! Voluptate eaque nesciunt fugiat ex cum neque eos hic, necessitatibus omnis, reprehenderit consequuntur vero quas sequi quos!</p>\r\n\r\n<p>Consequatur aperiam illo recusandae error, quod iusto eaque expedita deserunt neque similique dolor ipsum accusantium perspiciatis ex nobis pariatur quaerat eveniet porro exercitationem a nisi. Nihil amet alias eveniet eaque.</p>\r\n\r\n<p>Mollitia cumque, error cum illum inventore ex repellendus. Quos eius id cum sint voluptate, doloremque ab earum quaerat quidem molestias ullam ipsa voluptatibus iusto aut architecto sit blanditiis debitis? Earum.</p>\r\n\r\n<p>Illum debitis repellat ipsa quisquam assumenda consequatur placeat sunt quod necessitatibus fuga dolore similique porro, maxime obcaecati distinctio maiores culpa eius enim possimus voluptatem voluptate dolor recusandae. Minus, repellat sit.</p>\r\n', '2022-12-05');
+(1, 'Asperiores eligendi quia expedita nihil velit eaque nulla consequuntur ratione nisi culpa iste saepe nam voluptas minima illo,', 2, 'massiblog-5319.png', '<p>Asperiores eligendi quia expedita nihil velit eaque nulla consequuntur ratione nisi</p>\r\n\r\n<p>Natus laborum quos sequi labore voluptate quidem. Cum expedita aut obcaecati similique voluptatum sunt a omnis harum magni cupiditate, quia nemo, rem eveniet doloribus accusantium facilis, voluptates voluptas mollitia voluptatem?</p>\r\n\r\n<p>Dignissimos veniam, mollitia doloremque officiis, exercitationem ipsa dolorem doloribus quisquam eum similique sapiente reprehenderit illo voluptas unde quae voluptatibus ad nemo. Voluptates amet consequatur unde? Est commodi dolorum reprehenderit modi?</p>\r\n\r\n<p>Illo, quis maiores. Expedita repellendus facere impedit sed recusandae sunt similique porro deleniti iusto asperiores, at nesciunt facilis minima itaque! Nobis, sapiente assumenda! Ratione nulla repellendus deleniti adipisci iste quisquam!</p>\r\n\r\n<p>Magni, esse, libero incidunt vel velit voluptatum sed earum saepe, harum eos labore! Voluptate eaque nesciunt fugiat ex cum neque eos hic, necessitatibus omnis, reprehenderit consequuntur vero quas sequi quos!</p>\r\n\r\n<p>Consequatur aperiam illo recusandae error, quod iusto eaque expedita deserunt neque similique dolor ipsum accusantium perspiciatis ex nobis pariatur quaerat eveniet porro exercitationem a nisi. Nihil amet alias eveniet eaque.</p>\r\n\r\n<p>Mollitia cumque, error cum illum inventore ex repellendus. Quos eius id cum sint voluptate, doloremque ab earum quaerat quidem molestias ullam ipsa voluptatibus iusto aut architecto sit blanditiis debitis? Earum.</p>\r\n\r\n<p>Illum debitis repellat ipsa quisquam assumenda consequatur placeat sunt quod necessitatibus fuga dolore similique porro, maxime obcaecati distinctio maiores culpa eius enim possimus voluptatem voluptate dolor recusandae. Minus, repellat sit.</p>\r\n', '2022-12-05'),
+(2, 'Quo enim fugiat impe', 2, 'massiblog-697.png', '<figure class=\"easyimage easyimage-full\"><img alt=\"\" src=\"blob:http://localhost/67e2554d-dd53-40e6-9900-935192bb2365\" width=\"958\" />\r\n<figcaption></figcaption>\r\n</figure>\r\n\r\n<p>&nbsp;</p>\r\n', '2022-12-12');
 
 -- --------------------------------------------------------
 
@@ -138,6 +139,12 @@ ALTER TABLE `tbl_admin`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `tbl_blog_posts`
+--
+ALTER TABLE `tbl_blog_posts`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `tbl_categories`
 --
 ALTER TABLE `tbl_categories`
@@ -164,6 +171,12 @@ ALTER TABLE `tbl_about`
 --
 ALTER TABLE `tbl_admin`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `tbl_blog_posts`
+--
+ALTER TABLE `tbl_blog_posts`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `tbl_categories`

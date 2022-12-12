@@ -1,5 +1,5 @@
-<?php
-include 'partials/header.php';
+<?php 
+include 'config/config.inc.php';
 ?>
 <?php
         //CHeck whether Post id is set or not
@@ -37,7 +37,9 @@ include 'partials/header.php';
             header('location:index');
         }
     ?>
-
+<?php
+include 'partials/header-b.php';
+?>
 <main id="hero-top" class="lg:flex">
 
   <div class="main__left__content w-full">
@@ -70,7 +72,7 @@ while($row = $get_cat->fetch_assoc()) {
     <img src="images/<?php echo $cover_image ?>" alt="<?php echo $title ?>" class="object-contain w-full md:w-1/2">
 </div>
 
-<div data-aos="fade-up" class="content my-8 px-4 w-full break-words text-sm">
+<div data-aos="fade-up" class="content my-8 px-4 w-full  break-words text-sm">
 <?php echo $content ?>
 </div>
 

@@ -10,8 +10,8 @@
             alt="<?php echo $name; ?>">
     </div>
     <div class="ml-2">
-        <div class="text-sm font-semibold leading-5 capitalize">
-        <?php echo $name; ?>
+        <div class="text-sm font-semibold leading-5 ">
+        <?php echo substr($name,0,50). "..."; ?>
         </div>
     </div>
    
