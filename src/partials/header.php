@@ -11,6 +11,7 @@ include 'config/config.inc.php';?>
     <!-- compiled css link -->
     <link rel="stylesheet" href="css/output.css">
     <link rel="stylesheet" href="css/main.css">
+    <link rel="shortcut icon" href="images/icons/favicon.png" type="image/x-icon">
     <!-- fontawesome link -->
    <script src="https://kit.fontawesome.com/3ecb4095fb.js" crossorigin="anonymous"></script>
    <!-- aos css -->

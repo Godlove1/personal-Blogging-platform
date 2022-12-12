@@ -10,6 +10,7 @@
     <script src="https://kit.fontawesome.com/3ecb4095fb.js" crossorigin="anonymous"></script>
     <!-- tailwindwind css -->
     <link rel="stylesheet" href="../css/output.css">
+    <link rel="shortcut icon" href="../images/icons/favicon.png" type="image/x-icon">
     <!-- custom css -->
     <link rel="stylesheet" href="../css/main.css">
     <!-- ckeditor -->
