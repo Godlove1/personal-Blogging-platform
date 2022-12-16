@@ -1315,6 +1315,10 @@ video {
   line-height: 2.25rem;
 }
 
+.text-\[\.3em\] {
+  font-size: .3em;
+}
+
 .font-extrabold {
   font-weight: 800;
 }
@@ -1431,6 +1435,14 @@ video {
 .text-orange-500 {
   --tw-text-opacity: 1;
   color: rgb(249 115 22 / var(--tw-text-opacity));
+}
+
+.text-\[\] {
+  color: ;
+}
+
+.text-\[\.3\] {
+  color: .3;
 }
 
 .underline {

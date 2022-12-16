@@ -14,9 +14,9 @@ $c_date=$row['date']
 <!-- comment template -->
 <div  class="comment my-4 p-2 lg:w-[400px]">
     <p class="border-b capitalize font-bold first-letter:text-red-500 first-letter:text-xl"><?php echo $name; ?></p>
-    <p class="italic text-sm"><i class="fa-solid fa-quote-left"></i>
+    <p class="italic text-sm"><i class="fa-solid text-xs fa-quote-left"></i>
     <?php echo $comment_content; ?>
-        <i class="fa-solid text-sm fa-quote-right"></i></p>
+        <i class="fa-solid text-xs fa-quote-right"></i></p>
 
          <!-- replybox -->
         <!-- <div class="rep w-[250px] my-2">
