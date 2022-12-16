@@ -64,7 +64,7 @@ echo "<li><button class='h-10 px-3 text-teal-600 transition-colors duration-150 
 	}
 ?>
 
-	<li><button <?php if($page_no >= $total_no_of_pages){ echo "disabled"; } ?> class=" h-10 px-3 text-teal-600 transition-colors duration-150 bg-white border border-r-0 border-teal-600  focus:shadow-outline hover:bg-teal-100">
+	<li><button <?php if($page_no >= $total_no_of_pages){ echo "disabled"; } ?> class=" h-10 px-3 text-teal-600 transition-colors duration-150 bg-white border border-teal-600 rounded-r-lg focus:shadow-outline hover:bg-teal-100">
 	<a <?php if($page_no < $total_no_of_pages) { echo "href='?page_no=$next_page'"; } ?>>Next</a></button></li>
 
     <?php if($page_no < $total_no_of_pages){

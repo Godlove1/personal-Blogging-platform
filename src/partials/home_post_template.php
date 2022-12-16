@@ -1,6 +1,6 @@
 
 <!-- post template home page -->
-<div  data-aos="fade-up" data-aos-duration="1000" class="post border-2 border-slate-300 shadow-lg hover:shadow-none rounded-md lg:w-[340px]  lg:overflow-hidden m-2">
+<div  data-aos="fade-up" data-aos-duration="1000" class="post border-2 border-slate-300 shadow-lg hover:shadow-none rounded-md lg:w-[340px]  lg:overflow-hidden m-2 break-inside">
 <a href="blog_article?<?php echo md5($hp_id); ?>&post_key=<?php echo $hp_id; ?>" title="<?php echo $hp_title; ?>">
 <!-- content -->
  <!-- post_image -->
@@ -21,7 +21,7 @@
 
   <hr class="w-1/2 border-black mb-2">
 
-<p class="synopsis text-center ">
+<p class="synopsis text-center lg:px-2">
   <?php echo substr($hp_content,0,200).''.'...'; ?>
 </p>
 <p class="category text-center text-gray-500 text-xs my-2"><?php echo $hp_date; ?>.</p>

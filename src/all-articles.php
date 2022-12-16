@@ -2,7 +2,22 @@
 include 'partials/header.php';
 
 // varibale for filter
-@$cat=$_GET['cat'];
+@$cat=$_GET['cat']; 
+
+
+// pagination
+if (isset($_GET['page_no']) && $_GET['page_no']!="") {
+	$page_no = $_GET['page_no'];
+	} else {
+		$page_no = 1;
+        }
+
+	$total_records_per_page = 15;
+    $offset = ($page_no-1) * $total_records_per_page;
+	$previous_page = $page_no - 1;
+	$next_page = $page_no + 1;
+	$adjacents = "2"; 
+
 
 ?>
 
@@ -44,8 +59,14 @@ $quer2="SELECT * FROM tbl_categories order by id DESC";
   <?php
   if(isset($_GET['cat']) && strlen($_GET['cat'])<2){
     $type_cat=$_GET['cat'];
+
+    $result_count = mysqli_query($conn,"SELECT COUNT(*) As total_records FROM `tbl_blog_posts` WHERE cat_id=$type_cat");
+    $total_records = mysqli_fetch_array($result_count);
+    $total_records = $total_records['total_records'];
+    $total_no_of_pages = ceil($total_records / $total_records_per_page);
+    $second_last = $total_no_of_pages - 1;   
     
-$sql = "SELECT * FROM tbl_blog_posts WHERE cat_id=$type_cat order by rand() ";
+$sql = "SELECT * FROM tbl_blog_posts WHERE cat_id=$type_cat order by id DESC LIMIT $offset, $total_records_per_page";
 //Execute the qUery
 $res = mysqli_query($conn, $sql);
 $count = mysqli_num_rows($res);
@@ -67,20 +88,28 @@ $op_date= date("d, F Y ", strtotime($row['date']));
 }
 ?>
 <!-- load more posts -->
-<div class="w-full flex justify-center items-center p-4">
-    <button class="uppercase font-thin text-slate-600 border-2 border-slate-900 p-3 hover:border-red-500 hover:text-red-500 transition-all ease-in"><span>load more posts</span><i class="fa-solid ml-2 fa-rotate"></i></button>
-      </div>
+<!-- pagination -->
+<?php
+  include 'pagination_client.php';
+  ?>
 
 <?php
 }else{
   ?>
-<div>
+<div class="text-center font-bold">
   <p>No Articles for availbale for this category, try another!</p>
 </div>
   <?php
 } } else{
+
+  
+  $result_count = mysqli_query($conn,"SELECT COUNT(*) As total_records FROM `tbl_blog_posts`");
+  $total_records = mysqli_fetch_array($result_count);
+  $total_records = $total_records['total_records'];
+  $total_no_of_pages = ceil($total_records / $total_records_per_page);
+  $second_last = $total_no_of_pages - 1;
    
-$sql = "SELECT * FROM tbl_blog_posts order by rand() ";
+$sql = "SELECT * FROM tbl_blog_posts order by id DESC LIMIT $offset, $total_records_per_page";
 //Execute the qUery
 $res = mysqli_query($conn, $sql);
 $count = mysqli_num_rows($res);
@@ -102,9 +131,10 @@ $op_date= date("d, F Y ", strtotime($row['date']));
 }
 ?>
 <!-- load more posts -->
-<div class="w-full flex justify-center items-center p-4">
-    <button class="uppercase font-thin text-slate-600 border-2 border-slate-900 p-3 hover:border-red-500 hover:text-red-500 transition-all ease-in"><span>load more posts</span><i class="fa-solid ml-2 fa-rotate"></i></button>
-      </div>
+<!-- pagination -->
+<?php
+  include 'pagination_client.php';
+  ?>
 
 <?php
 }else{
@@ -118,10 +148,6 @@ $op_date= date("d, F Y ", strtotime($row['date']));
   
   </div>
 
-  <!-- load more posts -->
-  <!-- <div class="w-full flex justify-center items-center p-4">
-    <button class="uppercase font-thin text-slate-600 border-2 border-slate-900 p-3 hover:border-red-500 hover:text-red-500 transition-all ease-in"><span>load more posts</span><i class="fa-solid ml-2 fa-rotate"></i></button>
-      </div> -->
 
 </div>
  <!--/other post wrapper -->

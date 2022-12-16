@@ -66,9 +66,10 @@ while($row = $get_cats->fetch_assoc()) {
 
   
 <!-- keep in touch -->
-<div class="about__section my-10">
+
+<div class="about__section mt-10 ">
   <div class="about_me w-full border-b-2 border-black">
-    <h2 class="uppercase">keep in touch</h2>
+    <h2 class="uppercase p-2">keep in touch</h2>
   </div>
   <div data-aos="fade-up" class="flex justify-around items-center flex-wrap">
     <a href="<?php echo $fb; ?>"class="m-2 font-extralight uppercase"><i class="hover:text-red-500  transition-all  ease-linear m-2 fa-brands fa-facebook"></i>facebook</a>
@@ -79,12 +80,12 @@ while($row = $get_cats->fetch_assoc()) {
   </div>
 
 <!-- categories -->
-<div class="about__section my-10">
+<div class="about__section my-10 ">
   <div class="about_me w-full border-b-2 border-black">
-    <h2 class="uppercase">categories</h2>
+    <h2 class="uppercase p-2 ">categories</h2>
   </div>
-  <div class="flex justify-evenly items-center flex-wrap">
-    <a href="index" class="m-2 font-extralight capitalize hover:text-red-500 transition-all ease-in">Home</a>
+  <div class="flex lg:justify-evenly lg:items-center flex-wrap lg:flex-row flex-col">
+    <a href="index" class="m-2 font-extralight capitalize hover:text-red-500 transition-all ease-in"><i class="fa-solid text-xs fa-chevron-right text-red-500"></i> Home</a>
 
     
   <?php
@@ -94,7 +95,7 @@ while($row = $get_cats->fetch_assoc()) {
    $c_name = $row['name'];
     ?>
 
-<a href="all-articles?<?php echo $c_name.''.md5($c_name); ?>&cat_key=<?php echo $c_id; ?>" class="m-2 capitalize hover:text-red-500 transition-all ease-in"><i class="fa-solid text-xs fa-chevron-right"></i> <?php echo $c_name; ?></a>
+<a href="all-articles?<?php echo $c_name.''.md5($c_name); ?>&cat_key=<?php echo $c_id; ?>" class="m-2 capitalize hover:text-red-500 transition-all ease-in"><i class="fa-solid text-xs fa-chevron-right text-red-500"></i> <?php echo $c_name; ?></a>
 
 <?php } ?>
 

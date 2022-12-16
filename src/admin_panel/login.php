@@ -109,7 +109,7 @@ $_SESSION['user'] = $username;
           </div>
         </form>
         <p class="text-center text-gray-500 text-xs">
-          &copy;2022 NST ORGANICS. All rights reserved.
+          &copy;2022 Massi Martha. All rights reserved.
         </p>
       </div>
     </main>
