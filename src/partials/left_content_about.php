@@ -1,6 +1,6 @@
 
 <!-- will be o the right on large screens -->
-<div class="main__right__content p-1 my-8 lg:w-[40%] w-full  lg:pl-2 border-4 border-yellow-500">
+<div class="main__right__content p-1 my-8 lg:w-[40%] w-full  lg:pl-2">
     <!-- search box -->
     <form action="blog-search" method="post" class="w-full flex justify-center items-center">
      <div class="w-1/2 border flex justify-center items-center">

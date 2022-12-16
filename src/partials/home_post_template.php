@@ -1,6 +1,6 @@
 
 <!-- post template home page -->
-<div class="post border-8 border-pink-500 lg:w-[240px] lg:h-[240px] lg:overflow-hidden m-2">
+<div  data-aos="fade-up" data-aos-duration="1000" class="post border-2 border-slate-300 shadow-lg hover:shadow-none rounded-md lg:w-[340px]  lg:overflow-hidden m-2">
 <a href="blog_article?<?php echo md5($hp_id); ?>&post_key=<?php echo $hp_id; ?>" title="<?php echo $hp_title; ?>">
 <!-- content -->
  <!-- post_image -->
@@ -9,11 +9,22 @@
       </div>
 <!-- post descibtion -->
 <div class="dexcs my-2">
-  <p class="category"><?php echo $hp_cat; ?></p>
-  <h2 class="uppercase font-extralight text-xl"><?php echo $hp_title; ?></h2>
-<p class="synopsis">
-  <?php echo substr($hp_content,0,30); ?>
+  <p class="category text-center text-red-500"><?php
+  $get_cats = $db->query("SELECT * FROM tbl_categories where id=$hp_cat");
+  while($row = $get_cats->fetch_assoc()) {
+     $c_name = $row['name'];
+    
+  echo $c_name; 
+  }
+  ?></p>
+  <h2 class="uppercase font-bold text-xl px-2"><?php echo $hp_title; ?></h2>
+
+  <hr class="w-1/2 border-black mb-2">
+
+<p class="synopsis text-center ">
+  <?php echo substr($hp_content,0,200).''.'...'; ?>
 </p>
+<p class="category text-center text-gray-500 text-xs my-2"><?php echo $hp_date; ?>.</p>
 </div>
 
 <!-- content  -->
