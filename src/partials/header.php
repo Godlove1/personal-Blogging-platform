@@ -140,7 +140,7 @@ while($row = $get_cats->fetch_assoc()) {
    $c_name = $row['name'];
     ?>
 
-<li class="p-4 h-full transition-all ease-in-out hover:bg-slate-500 hover:text-white"><a href="all-articles?<?php echo $c_name.''.md5($c_name); ?>&cat_key=<?php echo $c_id; ?>" class="font-thin text-slate-400 uppercase"><?php echo $c_name; ?></a></li>
+<li class="p-4 h-full transition-all ease-in-out hover:bg-slate-500 hover:text-white"><a href="all-articles?<?php echo $c_name.''.md5($c_name); ?>&cat=<?php echo $c_id; ?>" class="font-thin text-slate-400 uppercase"><?php echo $c_name; ?></a></li>
 
 <?php } ?>
 

@@ -95,7 +95,7 @@ while($row = $get_cats->fetch_assoc()) {
    $c_name = $row['name'];
     ?>
 
-<a href="all-articles?<?php echo $c_name.''.md5($c_name); ?>&cat_key=<?php echo $c_id; ?>" class="m-2 capitalize hover:text-red-500 transition-all ease-in"><i class="fa-solid text-xs fa-chevron-right text-red-500"></i> <?php echo $c_name; ?></a>
+<a href="all-articles?<?php echo $c_name.''.md5($c_name); ?>&cat=<?php echo $c_id; ?>" class="m-2 capitalize hover:text-red-500 transition-all ease-in"><i class="fa-solid text-xs fa-chevron-right text-red-500"></i> <?php echo $c_name; ?></a>
 
 <?php } ?>
 
