@@ -3,7 +3,7 @@
 include('config/config.inc.php');
                     
 $post_key=$_SESSION['post_key'];
-$comment=mySQLi_query($conn,"SELECT * from tbl_comments  where post_id=$post_key order by id desc");
+$comment=mySQLi_query($conn,"SELECT * from tbl_comments  where post_id=$post_key order by id ASC");
 if(mysqli_num_rows($comment)>0){
 while($row=mySQLi_fetch_array($comment)){
 $comment_id=$row['id'];
@@ -12,7 +12,7 @@ $name=$row['username'];
 $c_date=$row['date']
 ?>
 <!-- comment template -->
-<div  class="comment my-4 p-2">
+<div  class="comment my-4 p-2 lg:w-[400px]">
     <p class="border-b capitalize font-bold first-letter:text-red-500 first-letter:text-xl"><?php echo $name; ?></p>
     <p class="italic text-sm"><i class="fa-solid fa-quote-left"></i>
     <?php echo $comment_content; ?>

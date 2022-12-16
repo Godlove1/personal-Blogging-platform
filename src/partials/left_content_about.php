@@ -1,14 +1,14 @@
 
 <!-- will be o the right on large screens -->
-<div class="main__right__content p-1 my-8 lg:w-[35%] lg:border-l border-gray-400 lg:pl-2">
+<div class="main__right__content p-1 my-8 lg:w-[40%] w-full  lg:pl-2 border-4 border-yellow-500">
     <!-- search box -->
     <form action="blog-search" method="post" class="w-full flex justify-center items-center">
      <div class="w-1/2 border flex justify-center items-center">
       <input type="search" name="search" placeholder="Search massi martha's blog" class="p-2 text-sm w-full border border-black focus:outline-none">
-      <input type="submit" value="search" name="search" class="bg-red-500 p-2 text-white">
+      <input type="submit" class="bg-red-500 p-2 text-white">
      </div>
     </form>
-
+ 
 <!-- about me -->
 <div class="about__section my-10">
 <div class="about_me w-full border-b-2 border-black">

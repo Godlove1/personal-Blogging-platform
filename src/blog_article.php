@@ -40,6 +40,7 @@ include 'config/config.inc.php';
 <?php
 include 'partials/header-b.php';
 ?>
+
 <main id="hero-top" class="lg:flex">
 
   <div class="main__left__content w-full">
@@ -72,7 +73,7 @@ while($row = $get_cat->fetch_assoc()) {
     <img src="images/<?php echo $cover_image ?>" alt="<?php echo $title ?>" class="object-contain w-full md:w-1/2">
 </div>
 
-<div data-aos="fade-up" class="content mb-8 px-4 w-full leading-3 text-sm">
+<div data-aos="fade-up" class="content my-8 px-4 w-full text-sm lg:text-xl">
 <?php echo $content ?>
 </div>
 
@@ -103,10 +104,10 @@ while($row = $get_cat->fetch_assoc()) {
 </div>
 
 <!-- comments wrapper -->
-<div class="comments lg:gpost_key gpost_key-cols-3" id="load_com">
+<div class="comments lg:grid gap-2 grid-cols-3" id="load_com">
 <?php
                         //Sql Query
-$comment=mySQLi_query($conn,"SELECT * from tbl_comments  where post_id=$blog_id order by id DESC");
+$comment=mySQLi_query($conn,"SELECT * from tbl_comments  where post_id=$blog_id order by id ASC");
 if(mysqli_num_rows($comment)>0){
 while($row=mySQLi_fetch_array($comment)){
 $comment_id=$row['id'];
@@ -211,7 +212,7 @@ $op_date=date("d, F Y ", strtotime($row['date']));
    function ()
    {
       $('#load_com').load('getcomments.php').fadeIn("slow");
-   }, 3000); // refresh page every 1 second
+   }, 1000); // refresh page every 1 second
 
    //Send Comment
    $(function() {

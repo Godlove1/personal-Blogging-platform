@@ -1,10 +1,15 @@
+<?php
+// database connection file
+include '../config/config.inc.php';
+include 'partials/login-check.php';
 
+?>
 <?php
 // ini_set('display_errors', 1);
 // ini_set('display_startup_errors', 1);
 // error_reporting(E_ALL);
 // header
-include 'partials/header.php';
+include 'partials/header-add.php';
 // varibale for filter
 @$cat=$_GET['cat'];
 

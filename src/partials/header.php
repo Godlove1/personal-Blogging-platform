@@ -8,6 +8,26 @@ include 'config/config.inc.php';?>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name='robots' content='index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1' />
+
+<!-- SEO -->
+<meta name="description" content="Travel Photographer and Travel Blogger focused on Asia, Europe &amp; Australia. Travel guides, tips and stories to plan your next adventure." />
+	<link rel="canonical" href="https://www.massimartha.blog/" />
+	<meta property="og:locale" content="en_US" />
+	<meta property="og:type" content="website" />
+	<meta property="og:title" content="Massi Martha | Travel Blog " />
+	<meta property="og:description" content="Travel Photographer and Travel Blogger focused on Asia, Europe &amp; Australia. Travel guides, tips and stories to plan your next adventure." />
+	<meta property="og:url" content="https://www.massimartha.blog/" />
+	<meta property="og:site_name" content="Dan Flying Solo" />
+	<meta property="article:publisher" content="http://www.facebook.com/massimartha" />
+	<meta property="og:image:width" content="2048" />
+	<meta property="og:image:height" content="1152" />
+	<meta property="og:image:type" content="image/jpeg" />
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta name="twitter:site" content="@dmassimartha" />
+	<meta name="twitter:label1" content="Estimated reading time" />
+	<meta name="twitter:data1" content="7 minutes" />
+
     <!-- compiled css link -->
     <link rel="stylesheet" href="css/output.css">
     <link rel="stylesheet" href="css/main.css">

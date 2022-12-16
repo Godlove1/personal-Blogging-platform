@@ -1,7 +1,6 @@
 <?php
 include 'partials/header.php';
 $search = mysqli_real_escape_string($conn,strip_tags(stripcslashes($_POST['search'])));
-
 ?>
 
 <main id="hero-top" class="lg:flex">
@@ -42,7 +41,7 @@ $op_date= date("d, F Y ", strtotime($row['date']));
   ?>
  <!-- no Result found -->
  <div class="w-full flex justify-center items-center p-4 text-red-500">
-   <p>We could not find what you are looking for, try something else</p>
+   <p>We could not find what you are looking for, try something else.</p>
       </div>
   <?php
 }
