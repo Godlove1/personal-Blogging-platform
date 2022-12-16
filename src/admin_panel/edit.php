@@ -194,7 +194,7 @@ echo "<option value='0'>Category Not Available.</option>";
 
       <div class="font-semibold">
         <label class="block mb-1 text-gray-500" for="forms-labelOverInputCode">Current cover Image </label>
-       <img src="<?php echo $c_image; ?>" alt="prdo_image" class="w-[100px] h-[100px] rounded-md" id="imgDisplay">
+       <img src="<?php echo $c_image; ?>" alt="prdo_image" class="w-[200px] h-[100px] rounded-md object-contain border border-slate-500" id="imgDisplay">
       </div>
 
       <div class="font-semibold">

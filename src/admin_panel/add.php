@@ -163,7 +163,7 @@ $title = $row['name'];?>
       <div class="font-semibold">
         <label class="block mb-1 " for="forms-labelOverInputCode">Cover Image </label>
      <div class="flex items-center">
-     <img src="../images/logos/l5.png" alt="prdo_image" class="w-[100px] h-[100px] rounded-md" id="imgDisplay">
+     <img src="../images/logos/l5.png" alt="prdo_image" class="w-[200px] h-[100px] rounded-md object-contain border border-slate-500" id="imgDisplay">
      <input class="w-full h-10 px-3 focus:outline-none file:border-0  file:rounded-full file:text-sm file:font-semibold file:bg-teal-500 file:text-white" type="file" name="image" onChange="displayImage(this)"/>
      </div>
       </div>
@@ -172,7 +172,7 @@ $title = $row['name'];?>
     <div class="font-semibold">
         <label class="block mb-1" for="forms-labelOverInputCode">Post Content</label>
         <!-- <textarea class="w-full h-16 px-3 py-2 text-base font-semibold placeholder-gray-300 border border-slate-400 rounded-lg focus:outline-none " name="post_content"></textarea> -->
-        <textarea id="editor1" name="editor1"></textarea>
+        <textarea id="editor1" name="editor1" class="border border-slate-500"></textarea>
       </div>
 
     <input class="w-1/2 h-10 px-3 mt-6 font-semibold bg-teal-500 text-white rounded-lg focus:outline-none" type="submit" name="publish" value="Publish"/>

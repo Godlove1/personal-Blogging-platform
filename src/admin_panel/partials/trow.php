@@ -32,7 +32,7 @@
                         echo $countcom;
                     ?><i class="fa-brands ml-2 fa-readme"></i></a></td>
 <td class="flex justify-center items-center"> 
-<a href="../blog_article?post_key=<?php echo $id; ?>" class="p-1 bg-green-500 text-white rounded font-semibold">VIEW</a>
+<a href="../blog_article?post_key=<?php echo $id; ?>" class="p-1 bg-green-500 text-white rounded font-semibold" target="_blank">VIEW</a>
 <a href="edit?id=<?php echo $id; ?>" class="p-1 bg-teal-500 text-white rounded ml-2 font-semibold">EDIT</a>
 <a href="delete?id=<?php echo $id; ?>&cover_image=<?php echo $c_img; ?>" onclick="confirm('Are you sure to Delete this Article?')" class="p-1 bg-red-500 text-white rounded ml-2 font-semibold">DELETE</a>
   

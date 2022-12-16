@@ -1,6 +1,8 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@700&family=Montserrat&display=swap');
 
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap');
+
 *{
     margin: 0;
    padding: 0;
@@ -8,9 +10,12 @@
 }
 
 body{
-    font-family: 'Montserrat', sans-serif;
+   font-family: 'Raleway', sans-serif;
 }
 
+a,h2,.category{
+    font-family: 'Montserrat', sans-serif;
+}
 
 #mobiside{
 transition: all .3s ease-in-out;

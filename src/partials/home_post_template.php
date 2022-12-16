@@ -21,7 +21,7 @@
 
   <hr class="w-1/2 border-black mb-2">
 
-<p class="synopsis text-center lg:px-2">
+<p class="synopsis text-sm md:text-xl lg:px-2">
   <?php echo substr($hp_content,0,200).''.'...'; ?>
 </p>
 <p class="category text-center text-gray-500 text-xs my-2"><?php echo $hp_date; ?>.</p>

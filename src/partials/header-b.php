@@ -69,7 +69,7 @@ $pp=$row['pp'];
         <div class="w-full h-full border-2 ">
          
         <!-- menu-items -->
-        <div class="menu__item w-1/2 bg-white h-full relative">
+        <div class="menu__item w-3/5 bg-white h-full relative">
            <!-- close button -->
         <div class="close__mo_side p-2 absolute right-[-30px]">
           <center><i class="fa-solid fa-xmark w-5 h-5 font-bold transition-all ease-in-out hover:text-red-500 bg-white text-black rounded-lg shadow-md" onclick="closeNav()"></i></center>
