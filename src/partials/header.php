@@ -105,8 +105,8 @@ $pp=$row['pp'];
         </div>
 
       <!-- menu intems -->
-<ul class="">
-  <li class="border-b border-slate-500 p-4 transition-all ease-in-out hover:bg-slate-500 hover:text-white "><a href="index" class="font-thin text-slate-400 uppercase">home</a></li>
+<ul class="w-full h-full">
+  <li class="w-full h-4 border-b border-slate-500 p-4 transition-all ease-in-out hover:bg-red-500 hover:text-white "><a href="index" class=" w-full h-full  font-semibold  uppercase">home</a></li>
 
   <?php
 $get_cats = $db->query("SELECT * FROM tbl_categories order by id ASC");
@@ -115,11 +115,11 @@ while($row = $get_cats->fetch_assoc()) {
    $c_name = $row['name'];
     ?>
 
-<li class="border-b  border-slate-500 p-4 transition-all ease-in-out hover:bg-slate-500 hover:text-white"><a href="all-articles?<?php echo $c_name.''.md5($c_name); ?>&cat=<?php echo $c_id; ?>" class=" font-thin text-slate-400 uppercase"><?php echo $c_name; ?></a></li>
+<li class="border-b  border-slate-500 p-4 transition-all ease-in-out hover:bg-red-500 hover:text-white"><a href="all-articles?<?php echo $c_name.''.md5($c_name); ?>&cat=<?php echo $c_id; ?>" class=" font-semibold uppercase"><?php echo $c_name; ?></a></li>
 
 <?php } ?>
 
-  <li class="border-b  border-slate-500 p-4 transition-all ease-in-out hover:bg-slate-500 hover:text-white"><a href="" class="font-thin text-slate-400 uppercase">contact</a></li>
+  <li class="border-b  border-slate-500 p-4 transition-all ease-in-out hover:bg-red-500 hover:text-white"><a href="" class="font-semibold uppercase">contact</a></li>
 </ul>
 
         </div>
@@ -130,7 +130,7 @@ while($row = $get_cats->fetch_assoc()) {
           <!--laptop menu -->
         <div class="large__screen border-t-2 border-b-2 border-black sticky top-0 z-50 hidden bg-white lg:flex justify-between items-center">
           <ul class="w-full h-full flex justify-evenly items-center">
-<li class="p-4 h-full transition-all ease-in-out hover:bg-slate-500 hover:text-white"><a href="index" class=" font-thin text-slate-400 uppercase">home</a></li>
+<li class="p-4 h-full transition-all ease-in-out hover:bg-slate-500 hover:text-white"><a href="index" class=" font-semibold uppercase">home</a></li>
 
 <?php
 $get_cats = $db->query("SELECT * FROM tbl_categories order by id ASC limit 0,5");
@@ -140,11 +140,11 @@ while($row = $get_cats->fetch_assoc()) {
    $c_name = $row['name'];
     ?>
 
-<li class="p-4 h-full transition-all ease-in-out hover:bg-slate-500 hover:text-white"><a href="all-articles?<?php echo $c_name.''.md5($c_name); ?>&cat=<?php echo $c_id; ?>" class="font-thin text-slate-400 uppercase"><?php echo $c_name; ?></a></li>
+<li class="p-4 h-full transition-all ease-in-out hover:bg-red-500 hover:text-white"><a href="all-articles?<?php echo $c_name.''.md5($c_name); ?>&cat=<?php echo $c_id; ?>" class="font-semibold uppercase"><?php echo $c_name; ?></a></li>
 
 <?php } ?>
 
-<li class="p-4 h-full transition-all ease-in-out hover:bg-slate-500 hover:text-white"><a href="" class="font-thin text-slate-400 uppercase">contact</a></li>
+<li class="p-4 h-full transition-all ease-in-out hover:bg-red-500 hover:text-white"><a href="" class="font-semibold uppercase">contact</a></li>
           </ul>
           <div class="w-1/2 flex justify-around items-center">
             <a href="<?php echo $fb; ?>"class="mx-2"><i class="hover:text-red-500 transition-all ease-linear fa-brands fa-facebook"></i></a>

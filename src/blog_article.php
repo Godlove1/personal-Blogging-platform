@@ -81,8 +81,9 @@ while($row = $get_cat->fetch_assoc()) {
 <div class="sharebox flex w-full justify-center items-center">
   <ul class="flex justify-around items-center">
     <li class="flex items-center"><p>Share this article </p><i class="fa-solid fa-share-nodes ml-2"></i> </li>
-    <li class="ml-4 text-xl"><a href="https://www.facebook.com/sharer/sharer.php?u=blog_article?post_key=<?php echo $blog_id; ?>&display=popup&ref=plugin&src=share_button" onclick="return !window.open(this.href, 'Facebook', 'width=640,height=580')" target="_blank" class="hover:text-red-500" ><i class="fa-brands fa-facebook"></i></a></li>
-    <li class="ml-4 text-xl"><a href="blog_article?post_key=<?php echo $blog_id; ?>" target="_blank" class="hover:text-red-500" ><i class="fa-brands fa-whatsapp"></i></a></li>
+    <!-- <li class="ml-4 text-xl"><a href="https://www.facebook.com/sharer/sharer.php?u=blog_article?post_key=<?php //echo $blog_id; ?>&display=popup&ref=plugin&src=share_button" onclick="return !window.open(this.href, 'Facebook', 'width=640,height=580')" target="_blank" class="hover:text-red-500" ><i class="fa-brands fa-facebook"></i></a></li> -->
+    <div class="ml-4 fb-share-button" data-href="https://www.massimartha.blog/" data-layout="button" data-size="small"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.massimartha.blog/blog_article?post_key=<?php echo $blog_id; ?>%2F&amp;src=sdkpreparse" class=" fb-xfbml-parse-ignore">Share</a></div>
+    <li class="ml-4 text-xl"><a href="https://api.whatsapp.com/send?text=https://www.massimartha.blog/blog_article?post_key=<?php echo $blog_id; ?>" data-action="share/whatsapp/share" target="_blank" class="hover:text-red-500" ><i class="fa-brands fa-whatsapp"></i></a></li>
     <li class="ml-4 text-xl">
       <!-- <a href="" target="_blank" class="hover:text-red-500"><i class="fa-brands fa-twitter"></i></a> -->
     <a href="https://twitter.com/share?ref_src=blog_article?post_key=<?php echo $blog_id; ?>" class="twitter-share-button" data-show-count="true">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>

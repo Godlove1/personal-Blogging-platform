@@ -1,6 +1,6 @@
 
 <!-- post-wrapper -->
-<div data-aos="fade-up" class="wrapper w-full flex justify-between max-h-[150px] overflow-hidden border-b border-slate-600 mb-4">
+<div data-aos="fade-up" data-aos-duration="1000" class="wrapper w-full flex justify-between max-h-[150px] overflow-hidden border-b border-slate-600 mb-4">
       <div class="data-s w-full">
         <p class="capitalize text-red-500 text-xs font-medium"><?php
 $get_cat = $db->query("SELECT * FROM tbl_categories WHERE id=$op_cat ");

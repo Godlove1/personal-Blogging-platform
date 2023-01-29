@@ -11,7 +11,8 @@
   </div>
    <div class="p-4 my-4">
     <p class="text-xs text-gray-500 text-center">
-      &copy;2022 MassiMartha. All Right Reserved. <br> Designed and Developed by <a href="https://akalegodlove.netlify.app/" class="text-red-500">Akale Godlove</a>. 
+      &copy;2022 MassiMartha. All Right Reserved. 
+      <!-- <br> Designed and Developed by <a href="https://akalegodlove.netlify.app/" class="text-red-500">Akale Godlove</a>.  -->
     </p>
    </div>
 </footer>

@@ -20,8 +20,8 @@ if (isset($_GET['page_no']) && $_GET['page_no']!="") {
 <main id="hero-top" class="lg:flex w-full justify-between ">
 
 <!-- right side content on large screen -->
-<div class="main_right  w-full ">
-  <div class="wrapper w-full masonry sm:masonry-sm md:masonry-md">
+<div class="main_right  w-full p-8">
+  <div class="wrapper w-full masonry sm:masonry-sm md:masonry-md mb-8">
   <?php
   
   $result_count = mysqli_query($conn,"SELECT COUNT(*) As total_records FROM `tbl_blog_posts`");
@@ -54,6 +54,7 @@ $hp_date= date("d, F Y ", strtotime($row['date']));
 
 </div>
 <!-- pagination -->
+
 <?php
   include 'pagination_client.php';
   ?>

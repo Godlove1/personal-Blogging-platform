@@ -15,7 +15,7 @@
         }
         .masonry-md {
             column-gap: 1.5em;
-            column-count: 3;
+            column-count: 2;
         }
         .break-inside {
             break-inside: avoid;

@@ -33,23 +33,29 @@ self.location='all-articles?cat=' + val ;
 <meta name="description" content="Travel Photographer and Travel Blogger focused on Asia, Europe &amp; Australia. Travel guides, tips and stories to plan your next adventure." />
 	<link rel="canonical" href="https://www.massimartha.blog/blog_article?<?php echo md5($blog_id); ?>&post_key=<?php echo $blog_id; ?>" />
 	<meta property="og:locale" content="en_US" />
-<meta property="og:title" content="<?php echo $title; ?>">
+<meta property="og:title" content="<?php echo $title; ?>"/>
 <meta property="og:type" content="article" />
-<meta property="og:description" content="<?php echo substr($content,0,50); ?>">
-<meta property="og:image" content="https://www.massimartha.blog/images/<?php echo $cover_image; ?>">
+<meta property="og:description" content="Travel Photographer and Travel Blogger focused on Asia, Europe &amp; Australia. Travel guides, tips and stories to plan your next adventure." />
+<meta property="og:image" content="https://www.massimartha.blog/images/<?php echo $cover_image; ?>"/>
 <meta property="og:url" content="https://www.massimartha.blog/blog_article?<?php echo md5($blog_id); ?>&post_key=<?php echo $blog_id; ?>" />
-<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:card" content="summary_large_image"/>
 <!--  Non-Essential, But Recommended -->
-<meta property="og:description" content="Offering tour packages for individuals or groups.">
-<meta property="og:site_name" content="Massi Martha.">
+<meta property="og:description" content="Offering tour packages for individuals or groups."/>
+<meta property="og:site_name" content="Massi Martha."/>
 
 </head>
 <body>
     
+<div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v15.0" nonce="urolNGXm"></script>
+
+
+
+
     <!-- logo -->
     <div class="logo w-full flex justify-center items-center">
        <a href="index">
-        <img src="images/logos/l5.png" alt="NassiMartha" class="w-full h-full object-cover lg:object-contain ">
+        <img src="images/logos/l5.png" alt="NassiMartha" class="w-full h-full object-cover lg:object-contain "/>
        </a>
       </div>
 

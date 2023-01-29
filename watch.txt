@@ -6,3 +6,4 @@ username:massi
 password:massi
 
 
+visit critiqsite for more inspo on home page
