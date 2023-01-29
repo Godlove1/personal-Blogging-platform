@@ -1,7 +1,9 @@
 
-@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@700&family=Montserrat&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@700&family=Montserrat&display=swap');
 
-@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap'); */
+
+@import url('https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,300;0,400;0,700;1,700&display=swap');
 
 *{
     margin: 0;
@@ -10,18 +12,29 @@
 }
 
 body{
-   font-family: 'Raleway', sans-serif;
+    font-family: 'Barlow', sans-serif;
+    font-weight: 400;
 }
-
+/* 
 a,h2,.category{
     font-family: 'Montserrat', sans-serif;
+} */
+
+.header_h1{
+    font-weight: 700;
 }
+
+
 
 #mobiside{
 transition: all .3s ease-in-out;
 }
 
-.mobile__menu{
+li a{
+    font-weight: 700;
+}
+
+/* .mobile__menu{
     border-top: 2px solid black;
     border-bottom: 2px solid black;
-}
+} */

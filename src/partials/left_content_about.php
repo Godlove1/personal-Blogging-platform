@@ -4,15 +4,15 @@
     <!-- search box -->
     <form action="blog-search" method="post" class="w-full flex justify-center items-center px-2 lg:px-0">
      <div class="w-full border border-slate-300 flex justify-center items-center ">
-      <input type="search" name="search" placeholder="Search massi martha's blog" class="p-2 text-sm w-full   focus:outline-none">
-      <input type="submit" class="bg-red-500 p-2 text-white">
+      <input type="search" name="search" placeholder="Search my blog" class="p-2 text-sm w-full   focus:outline-none">
+      <input type="submit" value="search" class="bg-[#A23445] p-2 border text-white">
      </div>
     </form>
  
 <!-- about me -->
 <div class="about__section my-10">
 <div class="about_me w-full border-b-2 border-black">
-  <h2 class="uppercase">about me</h2>
+  <h2 class="uppercase header_h1">about me</h2>
 </div>
 
 <div class="me w-full flex justify-center items-center flex-col p-2">
@@ -29,7 +29,7 @@
 <!-- popular post -->
 <div class="about__section my-10">
   <div class="about_me w-full border-b-2 border-black mb-4">
-    <h2 class="uppercase">latest posts</h2>
+    <h2 class="uppercase header_h1">latest posts</h2>
   </div>
   
   <div class="w-full lg:flex justify-center items-center flex-col p-2">
@@ -46,8 +46,8 @@ while($row = $get_cats->fetch_assoc()) {
     <!-- pop-post-wrapper -->
     <div data-aos="fade-up" data-aos-duration="1000" class="wrapper w-full flex justify-between max-h-[150px] overflow-hidden border-b border-slate-600 mb-4">
       <div class="data-s w-full">
-       <a href="blog_article?<?php echo md5($lp_id); ?>&post_key=<?php echo $lp_id; ?>" title="<?php echo $lp_title ?>" class="hover:text-red-500 transition-all ease-in">
-         <h3 class="text-sm "><?php echo $lp_title; ?></h3>
+       <a href="blog_article?<?php echo md5($lp_id); ?>&post_key=<?php echo $lp_id; ?>" title="<?php echo $lp_title ?>" class="hover:text-[#A23445] transition-all ease-in">
+         <h3 class="text-sm font-bold"><?php echo $lp_title; ?></h3>
        </a>
         <p class="capitalize text-xs text-slate-600 my-4"><?php echo $lp_date; ?></p>
       </div>
@@ -69,23 +69,23 @@ while($row = $get_cats->fetch_assoc()) {
 
 <div class="about__section mt-10 ">
   <div class="about_me w-full border-b-2 border-black">
-    <h2 class="uppercase p-2">keep in touch</h2>
+    <h3 class="uppercase p-2 header_h1">keep in touch</h3>
   </div>
   <div data-aos="fade-up" data-aos-duration="1000" class="flex justify-around items-center flex-wrap">
-    <a href="<?php echo $fb; ?>"class="m-2 font-extralight uppercase"><i class="hover:text-red-500  transition-all  ease-linear m-2 fa-brands fa-facebook"></i>facebook</a>
-   <a href="<?php echo $tw; ?>" class="m-2 uppercase"><i class="hover:text-red-500 transition-all ease-linear m-2 fa-brands fa-twitter"></i>twitter</a>
-   <a href="<?php echo $ig; ?>" class="m-2 uppercase"><i class="hover:text-red-500 transition-all ease-linear m-2 fa-brands fa-instagram"></i>instagram</a>
-   <a href="<?php echo $yt; ?>" class="m-2 uppercase"><i class="hover:text-red-500 transition-all ease-linear m-2 fa-brands fa-youtube"></i>youtube</a>
+    <a href="<?php echo $fb; ?>"class="m-2 font-extralight uppercase"><i class="hover:text-[#A23445]  transition-all  ease-linear m-2 fa-brands fa-facebook"></i>facebook</a>
+   <a href="<?php echo $tw; ?>" class="m-2 uppercase"><i class="hover:text-[#A23445] transition-all ease-linear m-2 fa-brands fa-twitter"></i>twitter</a>
+   <a href="<?php echo $ig; ?>" class="m-2 uppercase"><i class="hover:text-[#A23445] transition-all ease-linear m-2 fa-brands fa-instagram"></i>instagram</a>
+   <a href="<?php echo $yt; ?>" class="m-2 uppercase"><i class="hover:text-[#A23445] transition-all ease-linear m-2 fa-brands fa-youtube"></i>youtube</a>
    </div>
   </div>
 
 <!-- categories -->
 <div class="about__section mt-10 mb-2 lg:my-10 ">
   <div class="about_me w-full border-b-2 border-black">
-    <h2 class="uppercase p-2 ">categories & Tags</h2>
+    <h2 class="uppercase p-2 header_h1">categories & Tags</h2>
   </div>
   <div class="flex flex-wrap">
-    <a href="index" class="m-2 font-extralight capitalize hover:text-red-500 transition-all ease-in"><i class="fa-solid text-xs fa-chevron-right text-red-500"></i> Home</a>
+    <a href="index" class="m-2 font-extralight capitalize hover:text-[#A23445] transition-all ease-in"><i class="fa-solid text-xs fa-chevron-right text-[#A23445]"></i> Home</a>
 
     
   <?php
@@ -95,7 +95,7 @@ while($row = $get_cats->fetch_assoc()) {
    $c_name = $row['name'];
     ?>
 
-<a href="all-articles?<?php echo $c_name.''.md5($c_name); ?>&cat=<?php echo $c_id; ?>" class="m-2 border border-slate-400 capitalize rounded-full px-2 hover:bg-red-500 hover:text-white hover:border-white transition-all ease-in"><?php echo $c_name; ?> <span>(<?php
+<a href="all-articles?<?php echo $c_name.''.md5($c_name); ?>&cat=<?php echo $c_id; ?>" class="m-2 border border-slate-400 capitalize rounded-full px-2 hover:bg-[#A23445] hover:text-white hover:border-white transition-all ease-in"><?php echo $c_name; ?> <span>(<?php
                         //Sql Query
     $sql1 = "SELECT * FROM tbl_blog_posts WHERE cat_id=$c_id";
                         //Execute Query

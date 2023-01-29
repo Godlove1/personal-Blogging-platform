@@ -5,17 +5,14 @@
 
 @layer utilities {
     @variants responsive {
+       
         .masonry {
             column-gap: 1.5em;
             column-count: 1;
         }
-        .masonry-sm {
+        .masonry-lg {
             column-gap: 1.5em;
-            column-count: 2;
-        }
-        .masonry-md {
-            column-gap: 1.5em;
-            column-count: 2;
+            column-count: 3;
         }
         .break-inside {
             break-inside: avoid;

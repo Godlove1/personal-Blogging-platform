@@ -1,18 +1,19 @@
 <?php
+include 'config/config.inc.php';
 include 'partials/header.php';
 
 // pagination
-if (isset($_GET['page_no']) && $_GET['page_no']!="") {
-	$page_no = $_GET['page_no'];
-	} else {
-		$page_no = 1;
-        }
+// if (isset($_GET['page_no']) && $_GET['page_no']!="") {
+// 	$page_no = $_GET['page_no'];
+// 	} else {
+// 		$page_no = 1;
+//         }
 
-	$total_records_per_page = 15;
-    $offset = ($page_no-1) * $total_records_per_page;
-	$previous_page = $page_no - 1;
-	$next_page = $page_no + 1;
-	$adjacents = "2"; 
+// 	$total_records_per_page = 15;
+//     $offset = ($page_no-1) * $total_records_per_page;
+// 	$previous_page = $page_no - 1;
+// 	$next_page = $page_no + 1;
+// 	$adjacents = "2"; 
 
 ?>
 
@@ -20,17 +21,17 @@ if (isset($_GET['page_no']) && $_GET['page_no']!="") {
 <main id="hero-top" class="lg:flex w-full justify-between ">
 
 <!-- right side content on large screen -->
-<div class="main_right  w-full p-8">
-  <div class="wrapper w-full masonry sm:masonry-sm md:masonry-md mb-8">
-  <?php
+<div class="main_right  w-full lg:p-8">
+  <div class="wrapper w-full masonry lg:masonry-lg mb-8 p-4">
+  <?php 
   
-  $result_count = mysqli_query($conn,"SELECT COUNT(*) As total_records FROM `tbl_blog_posts`");
-  $total_records = mysqli_fetch_array($result_count);
-  $total_records = $total_records['total_records'];
-  $total_no_of_pages = ceil($total_records / $total_records_per_page);
-  $second_last = $total_no_of_pages - 1;
+  // $result_count = mysqli_query($conn,"SELECT COUNT(*) As total_records FROM `tbl_blog_posts`");
+  // $total_records = mysqli_fetch_array($result_count);
+  // $total_records = $total_records['total_records'];
+  // $total_no_of_pages = ceil($total_records / $total_records_per_page);
+  // $second_last = $total_no_of_pages - 1;
 
-$sql = "SELECT * FROM tbl_blog_posts order by id DESC LIMIT $offset, $total_records_per_page";
+$sql = "SELECT * FROM tbl_blog_posts order by rand() LIMIT 15";
 //Execute the qUery
 $res = mysqli_query($conn, $sql);
 $count = mysqli_num_rows($res);
@@ -53,12 +54,118 @@ $hp_date= date("d, F Y ", strtotime($row['date']));
 ?>
 
 </div>
+
+<!-- view all button -->
+<div class="v_all w-full flex justify-center items-center my-8">
+  <a href="all-articles" class="flex text-2xl p-2 items-center bg-[#921125] hover:bg-[#A23445] text-white"> <span>view all</span> <i class="fa-solid ml-2 text-xl fa-arrow-right"></i></a>
+</div>
+
 <!-- pagination -->
-
 <?php
-  include 'pagination_client.php';
+  // include 'pagination_client.php';
   ?>
+<!-- FEAUTURED VIDEOS AREA/MY VLOG -->
+<div class=" border-red-600 border-8 lg:border-none bg-[#121418] text-white  p-4 mb-8">
+<div class="inner_wrapper">
 
+<!-- heade -->
+<div class="tit flex w-full items-center mb-4">
+<h1 role="title" class="w-full lg:w-[200px] uppercase header_h1 text-2xl lg:text-4xl">My vlog</h1>
+<div class="w-full border-slate-400 border"></div>
+</div>
+
+<!-- videos -->
+<div class="videos w-full flex justify-center items-center flex-col">
+
+  <!-- main random video -->
+<div class="w-full lg:w-1/2 relative  overflow-hidden">
+  <a href="" class=" overflow-hidden">
+    <img src="images/massiblog-4280.webp" class="object-cover w-full h-full" alt="" srcset="images/massiblog-4280.webp">
+ <div class="w-full h-full absolute top-4">
+<div class="w-full h-full flex justify-center items-center">
+<i class="fa-solid fa-play text-4xl"></i>
+</div>
+ </div>
+  </a>
+  <!-- meta/desctription -->
+  <div class="">
+<p class="text-sm text-red-500">movie review</p>
+<a class="text-3xl hover:text-[#921125] transition-all ease-linear .header_h1" href="" >In a cold war zone. what remains?</a>
+  </div>
+</div>
+
+<!-- other 3 videos -->
+<div>
+<div class="wrapper w-full masonry lg:masonry-lg my-8">
+
+<div class="relative flex lg:flex-col overflow-hidden my-4">
+  <a href="" class=" overflow-hidden">
+    <img src="images/massiblog-4280.webp" class="object-cover w-full h-full" alt="" srcset="images/massiblog-4280.webp">
+ <div class="w-full h-full absolute top-4">
+<div class="w-full  flex justify-center items-center">
+<i class="fa-solid fa-play text-4xl"></i>
+</div>
+ </div>
+  </a>
+  <!-- meta/desctription -->
+  <div class="pl-2">
+<p class="text-sm text-red-500">movie review</p>
+<a class="lg:text-xl hover:text-[#921125] transition-all ease-linear .header_h1" href="" >In a cold war zone. what remains?</a>
+  </div>
+</div>
+
+
+<div class="relative flex lg:flex-col overflow-hidden my-4">
+  <a href="" class=" overflow-hidden">
+    <img src="images/massiblog-4280.webp" class="object-cover w-full h-full" alt="" srcset="images/massiblog-4280.webp">
+ <div class="w-full h-full absolute top-4">
+<div class="w-full  flex justify-center items-center">
+<i class="fa-solid fa-play text-4xl"></i>
+</div>
+ </div>
+  </a>
+  <!-- meta/desctription -->
+  <div class="pl-2">
+<p class="text-sm text-red-500">movie review</p>
+<a class="lg:text-xl hover:text-[#921125] transition-all ease-linear .header_h1" href="" >In a cold war zone. what remains?</a>
+  </div>
+</div>
+
+
+<div class="relative flex lg:flex-col overflow-hidden my-4">
+  <a href="" class=" overflow-hidden">
+    <img src="images/massiblog-4280.webp" class="object-cover w-full h-full" alt="" srcset="images/massiblog-4280.webp">
+ <div class="w-full h-full absolute top-4">
+<div class="w-full  flex justify-center items-center">
+<i class="fa-solid fa-play text-4xl"></i>
+</div>
+ </div>
+  </a>
+  <!-- meta/desctription -->
+  <div class="pl-2">
+<p class="text-sm text-red-500">movie review</p>
+<a class="lg:text-xl hover:text-[#921125] transition-all ease-linear .header_h1" href="" >In a cold war zone. what remains?</a>
+  </div>
+</div>
+
+
+</div>
+<!-- toutube link -->
+
+<div class="flex justify-center items-center">
+  <a class="bg-[#921125] p-2 " href="<?php echo $yt ?>" target="_blank" rel="noopener noreferrer"><span>View All</span>
+  <i class="fa-solid fa-arrow-up-right-from-square ml-2"></i>
+</a>
+</div>
+
+</div>
+
+
+</div>
+</div>
+
+
+</div>
 </div>
 
 

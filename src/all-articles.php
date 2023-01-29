@@ -1,4 +1,5 @@
 <?php
+include 'config/config.inc.php';
 include 'partials/header.php';
 
 // varibale for filter
@@ -26,23 +27,23 @@ if (isset($_GET['page_no']) && $_GET['page_no']!="") {
   <div class="main__left__content w-full">
 <!-- other post from the same category -->
 <div class="opyml-wrapper my-8 p-2">
-  <div class="omy-header flex justify-between items-center px-4">
-    <h3 class="font-extrabold underline ">View all blog articles</h3>
+  <div class="my-header flex justify-between items-center px-2 lg:px-12">
+    <h3 class=" text-xl lg:text-2xl  header_h1">View all blog articles</h3>
     <form  method="post">
 <?php
 ///////// Getting the data from Mysql table for first list box//////////
 $quer2="SELECT * FROM tbl_categories order by id DESC";
 ///////////// End of query for first list box////////////
 ?>
-    <select name='cat' onchange="reload(this.form)" class="border-2 border-slate-700 rounded-sm focus:border-red-500 transition-all ease-out focus:outline-none">
+    <select name='cat' onchange="reload(this.form)" class="bg-[#A23445] text-white rounded-sm focus:border-red-500 p-2 font-bold transition-all ease-out shadow-lg focus:outline-none">
         <option value="Default sorting">All Articles</option>
         <?php
     foreach ($db->query($quer2) as $cgory) {
         if($category['id']==$status){
             if($cgory['id'] == $cat ){
-                echo "<option selected value='$cgory[id]'>$cgory[name]</option>";
+                echo "<option selected value='$cgory[id]' class='font-bold my-4 text-[#EBA826]'>$cgory[name]</option>";
               }else{
-                echo "<option value='$cgory[id]'>$cgory[name]</option>";
+                echo "<option value='$cgory[id]' class='font-bold my-4'>$cgory[name]</option>";
               }
             }
         }
@@ -54,7 +55,7 @@ $quer2="SELECT * FROM tbl_categories order by id DESC";
   <!-- other post wrapper -->
 <div class="owrapper my-8">
 
-  <div class="w-full lg:flex justify-center items-center flex-col p-2">
+  <div class="w-full lg:flex justify-center items-center flex-col p-2 lg:p-12">
    
   <?php
   if(isset($_GET['cat']) && strlen($_GET['cat'])<2){

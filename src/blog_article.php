@@ -38,7 +38,7 @@ include 'config/config.inc.php';
         }
     ?>
 <?php
-include 'partials/header-b.php';
+include 'partials/header.php';
 ?>
 
 <main id="hero-top" class="lg:flex">
@@ -47,14 +47,20 @@ include 'partials/header-b.php';
 <div class="post__wrapper p-2 w-full ">
 
 <!-- post info -->
-<div class="post_data flex justify-center items-center flex-col">
-    <p class="capitalize text-red-500 text-sm mt-4"><?php
+<div class="post_data flex justify-center items-center flex-col border-b-2 pb-2">
+    <p class="capitalize text-red-500 text-sm mt-4 underline">
+      <?php
 $get_cat = $db->query("SELECT * FROM tbl_categories WHERE id=$category ");
 while($row = $get_cat->fetch_assoc()) {
   //  $c_id = $row['id'];
    echo $row['name'];
 } ?></p>
-    <h2 class="font-bold uppercase text-center my-2"><?php echo $title ?></h2>
+
+<!-- blog title -->
+    <h2 class="header_h1 text-2xl lg:text-4xl uppercase text-center my-2">
+      <?php echo $title ?>
+    </h2>
+
     <p class="date text-xs md:text-sm text-slate-500">by <span class="text-black">Massi Martha</span>&nbsp;| &nbsp; <?php echo $post_date ?>  &nbsp;| &nbsp; <span>
     <?php
                         //Sql Query
@@ -73,27 +79,28 @@ while($row = $get_cat->fetch_assoc()) {
     <img src="images/<?php echo $cover_image ?>" alt="<?php echo $title ?>" class="object-contain w-full md:w-1/2">
 </div>
 
-<div data-aos="fade-up" class="content my-8 px-4 w-full text-sm lg:text-xl">
+<div data-aos="fade-up" class="content my-8 px-4 lg:px-12 w-full text-sm lg:text-xl">
 <?php echo $content ?>
 </div>
 
 <!-- share box -->
-<div class="sharebox flex w-full justify-center items-center">
-  <ul class="flex justify-around items-center">
-    <li class="flex items-center"><p>Share this article </p><i class="fa-solid fa-share-nodes ml-2"></i> </li>
-    <!-- <li class="ml-4 text-xl"><a href="https://www.facebook.com/sharer/sharer.php?u=blog_article?post_key=<?php //echo $blog_id; ?>&display=popup&ref=plugin&src=share_button" onclick="return !window.open(this.href, 'Facebook', 'width=640,height=580')" target="_blank" class="hover:text-red-500" ><i class="fa-brands fa-facebook"></i></a></li> -->
-    <div class="ml-4 fb-share-button" data-href="https://www.massimartha.blog/" data-layout="button" data-size="small"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.massimartha.blog/blog_article?post_key=<?php echo $blog_id; ?>%2F&amp;src=sdkpreparse" class=" fb-xfbml-parse-ignore">Share</a></div>
-    <li class="ml-4 text-xl"><a href="https://api.whatsapp.com/send?text=https://www.massimartha.blog/blog_article?post_key=<?php echo $blog_id; ?>" data-action="share/whatsapp/share" target="_blank" class="hover:text-red-500" ><i class="fa-brands fa-whatsapp"></i></a></li>
-    <li class="ml-4 text-xl">
-      <!-- <a href="" target="_blank" class="hover:text-red-500"><i class="fa-brands fa-twitter"></i></a> -->
-    <a href="https://twitter.com/share?ref_src=blog_article?post_key=<?php echo $blog_id; ?>" class="twitter-share-button" data-show-count="true">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+<div class="sharebox flex w-full justify-center items-center p-2">
+  <ul class="flex justify-around items-center ">
+    <li class="flex items-center header_h1 lg:text-2xl"><p>Share </p><i class="fa-solid fa-share-nodes ml-2"></i> </li>
+   
+    <div class="ml-4 fb-share-button" data-href="https://www.massimartha.blog/" data-layout="button" data-size="large"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.massimartha.blog/blog_article?post_key=<?php echo $blog_id; ?>%2F&amp;src=sdkpreparse" title="share on facebook" class=" fb-xfbml-parse-ignore">Share</a></div>
+    
+    <li class="mx-4 flex text-white justify-center bg-green-500 px-2 rounded-lg items-center"><a href="https://api.whatsapp.com/send?text=https://www.massimartha.blog/blog_article?post_key=<?php echo $blog_id; ?>"  title="share on whatsapp" data-action="share/whatsapp/share" target="_blank" class="hover:text-[#A23445]" > <i class="fa-brands fa-whatsapp text-xl mr-2"></i><span class="text-xs">whatsapp</span> </a></li>
+
+    <li class="text-xl">
+    <a href="https://twitter.com/share?ref_src=blog_article?post_key=<?php echo $blog_id; ?>&amp;text=<?php echo $title; ?>" class="twitter-share-button" data-size="large"  title="share on twitter" data-show-count="true">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
   </li>
   </ul>
 </div>
 
 <!-- comment section -->
 <div data-aos="fade-up" class="comments mt-8 mb-4 flex justify-center items-center">
-    <h4 class="border p-2 w-1/2 border-black text-center font-bold "> <?php
+    <h4 class="border p-4 w-1/2 border-black text-center font-bold "> <?php
                         //Sql Query
     $sql1 = "SELECT * FROM tbl_comments WHERE post_id=$post_key";
                         //Execute Query
@@ -139,10 +146,10 @@ $c_date=$row['date']
 <!-- add comment -->
 <div class="add_comm w-full flex justify-center items-center my-8">
 <form id="contact_form" method="post" class="flex flex-col w-full px-4 lg:w-1/2">
-  <input type="text" name="username" placeholder="your name" class="border border-slate-500 rounded-md focus:outline-none focus:border-red-500 shadow-md p-2 my-2 transition-all ease-linear" required>
-  <textarea name="comment" placeholder="enter your reply ..."   cols="25" rows="3" class=" shadow-md border border-slate-500 rounded-md focus:outline-none focus:border-red-500 transition-all p-2 ease-linear" required></textarea>
+  <input type="text" name="username" placeholder="your name" class="border border-slate-500 rounded-md focus:outline-none focus:border-[#A23445] shadow-md p-2 my-2 transition-all ease-linear" required>
+  <textarea name="comment" placeholder="enter your reply ..."   cols="25" rows="3" class=" shadow-md border border-slate-500 rounded-md focus:outline-none focus:border-[#A23445] transition-all p-2 ease-linear" required></textarea>
   <input type="hidden" name="post_id" value="<?php echo $blog_id?>">
-  <input type="submit" value="SEND" name="post_comment" class="shadow-md rounded-md  hover:bg-white bg-red-500 hover:text-red-500 text-white p-2 my-2 w-1/2 transition-all ease-linear">
+  <input type="submit" value="SEND" name="post_comment" class="shadow-md header_h1  hover:bg-white bg-[#A23445] hover:text-[#A23445] text-white p-2 my-2 w-1/2 transition-all ease-linear">
 </form>
 </div>
 
@@ -151,7 +158,7 @@ $c_date=$row['date']
 <!-- other post from the same category -->
 <div class="opyml-wrapper my-8 p-2">
   <div class="omy-header text-center">
-    <h3 class="font-extrabold underline ">Other Post you may like !</h3>
+    <h3 class="header_h1 text-2xl">Other Post you may like !</h3>
   </div>
 
   <!-- other post wrapper -->
@@ -187,7 +194,7 @@ $op_date=date("d, F Y ", strtotime($row['date']));
 
   <!-- see all posts -->
   <div class="see-all text-center my-8">
-    <a href="all-articles" class="w-[200px] bg-red-500 text-white px-4 py-2 transition-all ease-in-out hover:bg-red-400">See All</a>
+    <a href="all-articles" title="more amazing blog post" class="w-[200px] bg-[#A23445] text-white px-4 py-2 transition-all ease-in-out hover:bg-[#A23445]"> <span>view all</span> <i class="fa-solid ml-2 fa-arrow-right"></i></a>
   </div>
 
 </div>
