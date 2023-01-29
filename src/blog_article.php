@@ -146,7 +146,7 @@ $c_date=$row['date']
 
 <div id="message"></div>
 <!-- add comment -->
-<div class="add_comm w-full flex justify-center items-center my-8">
+<div class="add_comm w-full flex justify-center items-center my-8 shadow">
 <form id="contact_form" method="post" class="flex flex-col w-full px-4 lg:w-1/2">
   <input type="text" name="username" placeholder="your name" class="border border-slate-500 rounded-md focus:outline-none focus:border-[#A23445] shadow-md p-2 my-2 transition-all ease-linear" required>
   <textarea name="comment" placeholder="enter your reply ..."   cols="25" rows="3" class=" shadow-md border border-slate-500 rounded-md focus:outline-none focus:border-[#A23445] transition-all p-2 ease-linear" required></textarea>
