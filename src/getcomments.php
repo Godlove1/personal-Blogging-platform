@@ -43,8 +43,8 @@ $c_date=$row['date']
 ?>
 
 <!-- no comments -->
-<div class="text-center">
-    <i class="fa-regular fa-comments"></i> be the first to air your thoughts
+<div class="text-center italic text-sm">
+    <i class="fa-regular fa-comments mx-2"></i> <span>be the first to air your thoughts</span>
 </div>
 
 <?php

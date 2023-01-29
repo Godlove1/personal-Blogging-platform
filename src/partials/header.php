@@ -27,22 +27,51 @@ self.location='all-articles?cat=' + val ;
 }
 </script>
 
-    <title><?php // echo $title; ?></title>
+<!-- dynamic header -->
+<?php
+    $url = $_SERVER['REQUEST_URI'];
+$parts = parse_url($url);
+$str = $parts['path'];
 
+// Getting the current page URL
+$cur_page = substr($str,strrpos($str,"/")+1);
 
-<!-- SEO -->
-<!-- <meta name="description" content="Travel Photographer and Travel Blogger focused on Asia, Europe &amp; Australia. Travel guides, tips and stories to plan your next adventure." />
-	<link rel="canonical" href="https://www.massimartha.blog/blog_article?<?php// echo md5($blog_id); ?>&post_key=<?php //echo $blog_id; ?>" />
-	<meta property="og:locale" content="en_US" />
-<meta property="og:title" content="<?php// echo $title; ?>"/>
+if($cur_page == 'blog_article'){
+  ?>
+
+    <title><?php  echo $title; ?></title>
+
+  <meta property="og:title" content="<?php echo $title; ?>"/>
 <meta property="og:type" content="article" />
 <meta property="og:description" content="Travel Photographer and Travel Blogger focused on Asia, Europe &amp; Australia. Travel guides, tips and stories to plan your next adventure." />
-<meta property="og:image" content="https://www.massimartha.blog/images/<?php// echo $cover_image; ?>"/>
-<meta property="og:url" content="https://www.massimartha.blog/blog_article?<?php// echo md5($blog_id); ?>&post_key=<?php// echo $blog_id; ?>" />
-<meta name="twitter:card" content="summary_large_image"/> -->
+<meta property="og:image" content="https://www.massimartha.blog/images/<?php echo $cover_image; ?>"/>
+<meta property="og:url" content="https://www.massimartha.blog/blog_article?<?php echo md5($blog_id); ?>&post_key=<?php echo $blog_id; ?>" />
+
+
+<?php
+    }else{
+        ?>
+
+       <title>Massi Martha | Fashion,News & Entertainment</title>
+
+<!-- SEO -->
+<meta name="description" content="Travel Photographer and Travel Blogger focused on Asia, Europe &amp; Australia. Travel guides, tips and stories to plan your next adventure." />
+	<link rel="canonical" href="https://www.massimartha.blog/" />
+	<meta property="og:locale" content="en_US" />
+<meta property="og:title" content="Massi Martha"/>
+<meta property="og:type" content="article" />
+<meta property="og:description" content="Travel Photographer and Travel Blogger focused on Asia, Europe &amp; Australia. Travel guides, tips and stories to plan your next adventure." />
+<meta property="og:image" content="https://www.massimartha.blog/images/icons/favicon.png">
+<meta property="og:url" content="https://www.massimartha.blog" />
+
+    <?php
+    }
+?>
+ 
+<meta name="twitter:card" content="summary_large_image"/>
 <!--  Non-Essential, But Recommended -->
-<!-- <meta property="og:description" content="Offering tour packages for individuals or groups."/>
-<meta property="og:site_name" content="Massi Martha."/> -->
+<meta property="og:description" content="Offering tour packages for individuals or groups."/>
+<meta property="og:site_name" content="Massi Martha."/>
 
 </head>
 <body>

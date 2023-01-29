@@ -18,7 +18,7 @@
 
 <!-- floating to top -->
 <div class="fixed bottom-4 right-0 z-50 w-10 h-10 ">
-  <div class="  transition-all ease-linear rounded-full bg-[#921125] w-full flex justify-center items-center h-full">
+  <div class="mr-2 transition-all ease-linear rounded-full bg-[#921125] w-full flex justify-center items-center h-full">
     <a href="#hero-top"><i class="fa-solid font-bold text-xl text-white fa-chevron-up"></i></a>
   </div>
 </div>
