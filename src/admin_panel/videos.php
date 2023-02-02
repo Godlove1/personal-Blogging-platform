@@ -122,7 +122,7 @@ include 'partials/header-add.php';
 
 <!--edit form -->
 <div class="w-full flex justify-center items-center p-8 mt-2">
-<form class=" w-2/3 space-y-4 font-semibold" method="post" enctype="multipart/form-data">
+<form class="w-full lg:w-2/3 space-y-4 font-semibold" method="post" enctype="multipart/form-data">
 <div class="text-center mb-6">
 <p class="text-3xl header_h1">Add Videos</p>
 </div>
@@ -146,14 +146,14 @@ include 'partials/header-add.php';
 
       <div class="font-semibold">
         <label class="block mb-1 text-gray-500" for="forms-labelOverInputCode">Video Title</label>
-        <input class="w-2/3 h-10 px-3  border-slate-400 placeholder-gray-300 border-b-2 rounded-lg focus:outline-none focus:border-[#2271B1]" type="text" name="title" placeholder="title" required/>
+        <input class="w-full lg:w-2/3 h-10 px-3  border-slate-400 placeholder-gray-300 border-b-2 rounded-lg focus:outline-none focus:border-[#2271B1]" type="text" name="title" placeholder="title" required/>
       </div>
 
       <div class="font-semibold">
         <label class="block mb-1 text-gray-500" for="forms-labelOverInputCode">Youtube Video link </label>
-        <input class="w-2/3 h-10 px-3  border-slate-400 placeholder-gray-300 border-b-2 rounded-lg focus:outline-none focus:border-[#2271B1]" type="url" name="yt" placeholder="link" required/>
+        <input class="w-full lg:w-2/3 h-10 px-3  border-slate-400 placeholder-gray-300 border-b-2 rounded-lg focus:outline-none focus:border-[#2271B1]" type="url" name="yt" placeholder="link" required/>
       </div>
-
+ 
        <?php
        $sql = "SELECT * FROM tbl_vlogs ";
        //Execute the qUery

@@ -146,7 +146,7 @@ if(isset($_GET['id'])){
 
 <!--edit form -->
 <div class="w-full flex justify-center items-center p-8 mt-2">
-<form class=" w-2/3 space-y-4 font-semibold" method="post" enctype="multipart/form-data">
+<form class="w-full lg:w-2/3 space-y-4 font-semibold" method="post" enctype="multipart/form-data">
 <div class="text-center mb-6">
 <p class="text-3xl header_h1">Update Video Info.</p>
 </div>
