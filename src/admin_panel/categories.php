@@ -104,7 +104,7 @@ include 'partials/header-add.php';
 
  <!-- back btn -->
 <div class=" my-6  lg:mt-12 w-full flex justify-center">
-<a href="index" class="w-auto p-1 font-semibold bg-teal-500 text-white rounded-lg "><i class="fa-solid fa-left-long mr-2"></i>Go Back</a>
+<a href="index" class="w-auto p-1 font-semibold bg-[#2271B1] text-white rounded-lg "><i class="fa-solid fa-left-long mr-2"></i>Go Back</a>
 </div>
 
 
@@ -122,7 +122,7 @@ include 'partials/header-add.php';
         <input class="w-full h-10 px-3 text-base placeholder-gray-300 border border-slate-400 rounded-lg focus:outline-none" type="text" placeholder="name of category" name="name" required/>
       </div>
      
-      <input class="w-1/2 h-10 px-3 mt-6 font-semibold bg-teal-500 text-white rounded-lg focus:outline-none" type="submit" name="add_cati" value="ADD"/>
+      <input class="w-1/2 h-10 px-3 mt-6 font-semibold bg-[#2271B1] text-white rounded-lg focus:outline-none" type="submit" name="add_cati" value="ADD"/>
    </div>
     </form>
 
@@ -132,7 +132,7 @@ include 'partials/header-add.php';
     <div class="border border-gray-300 rounded-lg  w-full my-8 ">
     <h2 class="font-bold text-2xl my-4 underline ml-4">All Categories</h2>
    
-    <div class="mony__wrapper p-2  w-full max-h-[500px] flex flex-wrap justify-around items-center overflow-scroll">
+    <div class="mony__wrapper p-2  w-full max-h-[500px] flex flex-wrap justify-around items-center overflow-y-scroll">
    
 <?php
 $sql = "SELECT * FROM tbl_categories  order by id ASC";
@@ -150,9 +150,12 @@ while($row=mysqli_fetch_assoc($res)){
 
      <!-- template -->
      <div class="card my-2 lg:w-[200px] border-2 rounded-md p-1 border-gray-300">
-<div class="cation flex justify-center items-center flex-wrap">
-<p class="capitalize"><?php echo $name; ?></p>
-    <a href="categories?tid=<?php echo $id; ?>" class="bg-red-500 text-white px-3 ml-2 hover:text-red-500">Delete</a>
+<div class="w-full flex justify-center items-center flex-wrap">
+<p class="capitalize "><?php echo $name; ?></p>
+<div class="w-full flex justify-center  items-center">
+<a href="edit_category?id=<?php echo $id; ?>" class=" text-[#2271B1]  ml-2 ">Edit</a>
+    <a href="categories?tid=<?php echo $id; ?>" class=" text-red-500  ml-2 ">Delete</a>
+</div>
 </div>
     </div>
        <!-- template -->

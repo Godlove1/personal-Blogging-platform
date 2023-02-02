@@ -1,8 +1,8 @@
 
 <!-- will be o the right on large screens -->
-<div class="main__right__content px-2 lg:my-8 lg:w-[40%] w-full  lg:pl-2">
-    <!-- search box -->
-    <form action="blog-search" method="post" class="w-full flex justify-center items-center px-2 lg:px-0">
+<div class="main__right__content px-2  lg:my-8 lg:w-[40%] w-full lg:h-screen  lg:pl-2 ">
+    <!-- search box --> 
+    <form action="blog-search" method="post" class="w-full flex justify-center items-center px-2 lg:px-0 my-8 ">
      <div class="w-full border border-slate-300 flex justify-center items-center ">
       <input type="search" name="search" placeholder="Search my blog" class="p-2 text-sm w-full   focus:outline-none">
       <input type="submit" value="search" class="bg-[#A23445] p-2 border text-white">
@@ -67,7 +67,7 @@ while($row = $get_cats->fetch_assoc()) {
   
 <!-- keep in touch -->
 
-<div class="about__section mt-10 ">
+<div class="about__section mt-10 bg-black text-white lg:text-black lg:bg-white">
   <div class="about_me w-full border-b-2 border-black">
     <h3 class="uppercase p-2 header_h1">keep in touch</h3>
   </div>
@@ -80,7 +80,7 @@ while($row = $get_cats->fetch_assoc()) {
   </div>
 
 <!-- categories -->
-<div class="about__section mt-10 mb-2 lg:my-10 ">
+<div class="about__section  lg:mt-10 mb-2 lg:my-10 bg-black text-white lg:text-black lg:bg-white ">
   <div class="about_me w-full border-b-2 border-black">
     <h2 class="uppercase p-2 header_h1">categories & Tags</h2>
   </div>
@@ -95,7 +95,7 @@ while($row = $get_cats->fetch_assoc()) {
    $c_name = $row['name'];
     ?>
 
-<a href="all-articles?<?php echo $c_name.''.md5($c_name); ?>&cat=<?php echo $c_id; ?>" class="m-2 border border-slate-400 capitalize rounded-full px-2 hover:bg-[#A23445] hover:text-white hover:border-white transition-all ease-in"><?php echo $c_name; ?> <span>(<?php
+<a href="all-articles?<?php echo $c_name.''.md5($c_name); ?>&cat=<?php echo $c_id; ?>" class="m-2 border border-slate-400 capitalize rounded-full  bg-[#A23445] lg:bg-white  px-2 hover:bg-[#A23445] hover:text-white hover:border-white transition-all ease-in"><?php echo $c_name; ?> <span>(<?php
                         //Sql Query
     $sql1 = "SELECT * FROM tbl_blog_posts WHERE cat_id=$c_id";
                         //Execute Query

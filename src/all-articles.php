@@ -91,7 +91,7 @@ $op_date= date("d, F Y ", strtotime($row['date']));
 <!-- load more posts -->
 <!-- pagination -->
 <?php
-  include 'pagination_client.php';
+    include 'page_counter.php';
   ?>
 
 <?php
@@ -134,7 +134,7 @@ $op_date= date("d, F Y ", strtotime($row['date']));
 <!-- load more posts -->
 <!-- pagination -->
 <?php
-  include 'pagination_client.php';
+  include 'page_counter.php';
   ?>
 
 <?php

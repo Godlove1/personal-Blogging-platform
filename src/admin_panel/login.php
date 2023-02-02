@@ -69,7 +69,7 @@ $_SESSION['user'] = $username;
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/output.css">
-    <title>Admin Login</title>
+    <title>Massi Martha | Admin Login</title>
 </head>
 <body>
 
@@ -103,13 +103,13 @@ $_SESSION['user'] = $username;
             <input class="shadow appearance-none border border-slate-300  rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" name="password" type="password" placeholder="************">
           </div>
           <div class="flex items-center justify-between">
-            <button class="bg-teal-500 hover:bg-teal-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit" name="login">
+            <button class="bg-[#2271B1] hover:bg-[#2C3338] text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit" name="login">
               Sign In
             </button>
           </div>
         </form>
         <p class="text-center text-gray-500 text-xs">
-          &copy;2022 Massi Martha. All rights reserved.
+          &copy;2023 Massi Martha. All rights reserved.
         </p>
       </div>
     </main>

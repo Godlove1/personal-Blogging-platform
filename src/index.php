@@ -77,76 +77,101 @@ $hp_date= date("d, F Y ", strtotime($row['date']));
 <!-- videos -->
 <div class="videos w-full flex justify-center items-center flex-col">
 
+<?php
+$sql = "SELECT * FROM tbl_vlogs  order by rand() limit 1";
+//Execute the qUery
+$res = mysqli_query($conn, $sql);
+//Count Rows to check whether we have items or not
+$count = mysqli_num_rows($res);
+//Create Serial Number VAriable and Set Default VAlue as 1
+if($count>0){
+while($row=mysqli_fetch_assoc($res)){
+$id = $row['id'];
+$nameofvid=$row['name_of_vid'];
+$ytlink=$row['vid_link'];
+$thumbnail=$row['thumbnail'];
+
+    ?>
   <!-- main random video -->
-<div class="w-full lg:w-1/2 relative  overflow-hidden">
-  <a href="" class=" overflow-hidden">
-    <img src="images/massiblog-4280.webp" class="object-cover w-full h-full" alt="" srcset="images/massiblog-4280.webp">
- <div class="w-full h-full absolute top-4">
-<div class="w-full h-full flex justify-center items-center">
-<i class="fa-solid fa-play text-4xl"></i>
+<div class="w-full lg:w-1/2  relative  overflow-hidden">
+  <a href="<?php echo $ytlink; ?>" target="_blank" class="w-full overflow-hidden ">
+    <img src="images/<?php echo $thumbnail; ?>" class="object-cover w-full h-full" alt="<?php echo $nameofvid; ?>" srcset="images/<?php echo $thumbnail; ?>">
+
+    <div class="w-full h-full absolute top-0 left-0 right-0 bottom-0 ">
+<div class="w-full h-full  flex justify-center items-center ">
+<i class="fa-solid fa-play text-4xl hover:text-red-500 animate-pulse"></i>
 </div>
  </div>
+
   </a>
   <!-- meta/desctription -->
   <div class="">
-<p class="text-sm text-red-500">movie review</p>
-<a class="text-3xl hover:text-[#921125] transition-all ease-linear .header_h1" href="" >In a cold war zone. what remains?</a>
+<p class="text-sm text-red-500">Youtube</p>
+<a class="text-3xl hover:text-[#921125] transition-all ease-linear .header_h1" href="<?php echo $ytlink; ?>" target="_blank"  ><?php echo $nameofvid; ?></a>
   </div>
 </div>
+<!-- main random video -->
+
+<?php
+}   }else{
+ echo '
+ <div class="w-full text-center bg-red-500 p-6 text-white font-bold">
+                <p>No vlogs added yet!.</p>
+              </div>
+ ';
+} 
+?>
+
 
 <!-- other 3 videos -->
 <div>
 <div class="wrapper w-full masonry lg:masonry-lg my-8">
 
-<div class="relative flex lg:flex-col overflow-hidden my-4">
-  <a href="" class=" overflow-hidden">
-    <img src="images/massiblog-4280.webp" class="object-cover w-full h-full" alt="" srcset="images/massiblog-4280.webp">
- <div class="w-full h-full absolute top-4">
-<div class="w-full  flex justify-center items-center">
-<i class="fa-solid fa-play text-4xl"></i>
+
+<?php
+$sql = "SELECT * FROM tbl_vlogs  order by rand()";
+//Execute the qUery
+$res = mysqli_query($conn, $sql);
+//Count Rows to check whether we have items or not
+$count = mysqli_num_rows($res);
+//Create Serial Number VAriable and Set Default VAlue as 1
+if($count>0){
+while($row=mysqli_fetch_assoc($res)){
+$id = $row['id'];
+$nameofvid=$row['name_of_vid'];
+$ytlink=$row['vid_link'];
+$thumbnail=$row['thumbnail'];
+
+    ?>
+<div class="relative flex lg:flex-col overflow-hidden my-4 border-t">
+  <a  href="<?php echo $ytlink; ?>" target="_blank"  class="w-full overflow-hidden ">
+    <img src="images/<?php echo $thumbnail; ?>" class="object-cover w-full h-full" alt="<?php echo $nameofvid; ?>" srcset="images/<?php echo $thumbnail; ?>">
+    
+ <div class="w-full h-full absolute top-0 left-0 right-0 bottom-0 ">
+<div class="w-1/2 h-full  flex justify-center items-center ">
+<i class="fa-solid fa-play text-4xl hover:text-red-500 hover:animate-spin"></i>
 </div>
  </div>
+
+
   </a>
   <!-- meta/desctription -->
-  <div class="pl-2">
-<p class="text-sm text-red-500">movie review</p>
-<a class="lg:text-xl hover:text-[#921125] transition-all ease-linear .header_h1" href="" >In a cold war zone. what remains?</a>
+  <div class="p-4 w-full">
+<p class="text-sm text-red-500">Youtube</p>
+<a class="lg:text-xl hover:text-[#921125] transition-all ease-linear .header_h1"  href="<?php echo $ytlink; ?>" target="_blank"  ><?php echo $nameofvid; ?></a>
   </div>
 </div>
 
 
-<div class="relative flex lg:flex-col overflow-hidden my-4">
-  <a href="" class=" overflow-hidden">
-    <img src="images/massiblog-4280.webp" class="object-cover w-full h-full" alt="" srcset="images/massiblog-4280.webp">
- <div class="w-full h-full absolute top-4">
-<div class="w-full  flex justify-center items-center">
-<i class="fa-solid fa-play text-4xl"></i>
-</div>
- </div>
-  </a>
-  <!-- meta/desctription -->
-  <div class="pl-2">
-<p class="text-sm text-red-500">movie review</p>
-<a class="lg:text-xl hover:text-[#921125] transition-all ease-linear .header_h1" href="" >In a cold war zone. what remains?</a>
-  </div>
-</div>
-
-
-<div class="relative flex lg:flex-col overflow-hidden my-4">
-  <a href="" class=" overflow-hidden">
-    <img src="images/massiblog-4280.webp" class="object-cover w-full h-full" alt="" srcset="images/massiblog-4280.webp">
- <div class="w-full h-full absolute top-4">
-<div class="w-full  flex justify-center items-center">
-<i class="fa-solid fa-play text-4xl"></i>
-</div>
- </div>
-  </a>
-  <!-- meta/desctription -->
-  <div class="pl-2">
-<p class="text-sm text-red-500">movie review</p>
-<a class="lg:text-xl hover:text-[#921125] transition-all ease-linear .header_h1" href="" >In a cold war zone. what remains?</a>
-  </div>
-</div>
+<?php
+}   }else{
+ echo '
+ <div class="w-full text-center bg-red-500 p-6 text-white font-bold">
+                <p>No vlogs added yet!.</p>
+              </div>
+ ';
+} 
+?>
 
 
 </div>

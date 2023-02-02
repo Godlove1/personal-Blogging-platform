@@ -24,6 +24,7 @@ if(isset($_GET['id'])){
     $current_image  = $row['cover_image'];
     $categ = $row['cat_id'];
   $pdesc = $row['post_content'];
+  $status=$row['post_status'];
  
 }
  
@@ -35,6 +36,7 @@ if(isset($_POST['save_item'])){
    $desc = $_POST['editor1'];
    $current_image = $_POST['current_image'];
   $id=$_POST['idh'];
+  $stat=$_POST['p_status'];
 
   //2. Upload the image if selected
   if(isset($_FILES['image']['name'])){
@@ -99,6 +101,7 @@ if(isset($_POST['save_item'])){
   $sql3 = "UPDATE tbl_blog_posts SET
        title = '$name',
       cat_id = '$category',
+      post_status=$stat,
       post_content= '$desc',
       cover_image = '$image_name'
 
@@ -159,18 +162,18 @@ include 'partials/header-add.php';
 
 </div>
 <!-- back button -->
-<a href="index" class="w-auto  p-1 mb-2 font-semibold bg-teal-500 text-white rounded-lg focus:shadow-outline"><i class="fa-solid fa-left-long mr-2"></i>Go Back</a>
+<p id="go-back" class="w-[100px] cursor-pointer p-1 mb-2 font-semibold bg-[#2271B1] text-white rounded-lg focus:shadow-outline"><i class="fa-solid fa-left-long mr-2"></i>Go Back</p>
 
     <div class="font-semibold">
         <label class="block mb-1 text-gray-500" for="forms-labelOverInputCode">Title</label>
-        <input class="w-full h-10 px-3 text-base placeholder-gray-300 border border-slate-400 rounded-lg focus:shadow-outline" type="text" value="<?php echo $name; ?>" name="title"/>
+        <input class="w-full h-10 px-3 text-base placeholder-gray-300 border-b border-slate-400 rounded-lg focus:shadow-outline focus:border-[#2271B1]" type="text" value="<?php echo $name; ?>" name="title"/>
       </div>
      
       <div class="cat w-full lg:flex justify-around items-center">
     <div class="font-semibold">
         <label class="block mb-1 text-gray-500" >Select Category </label>
-        <select name="type" class=" h-10 px-3 mb-2 text-base  font-semibold border border-slate-400 rounded-lg focus:shadow-outline">
-        <?php
+        <select name="type" class=" h-10 px-3 mb-2 text-base  font-semibold border border-slate-400 rounded-lg focus:shadow-outline focus:border-[#2271B1]">
+        <?php 
 //Query to Get ACtive Categories
 $sql = "SELECT * FROM tbl_categories";
 //Execute the Query
@@ -193,13 +196,25 @@ echo "<option value='0'>Category Not Available.</option>";
       </div>
 
       <div class="font-semibold">
+        <label class="block mb-1 text-gray-500" >Post Status </label>
+       <div class="flex lg:block mb-2">
+     <p>
+     <input type="radio" name="p_status" value="1"  <?php if($status==1){echo "checked";} ?>><span>Publish(ed)</span>
+     </p>
+     <p class="mx-4">
+     <input type="radio" name="p_status" value="0"  <?php if($status==0){echo "checked";} ?>><span>Draft</span>
+     </p>
+       </div>
+      </div>
+
+      <div class="font-semibold">
         <label class="block mb-1 text-gray-500" for="forms-labelOverInputCode">Current cover Image </label>
        <img src="<?php echo $c_image; ?>" alt="prdo_image" class="w-[200px] h-[100px] rounded-md object-contain border border-slate-500" id="imgDisplay">
       </div>
 
       <div class="font-semibold">
         <label class="block mb-1 text-gray-500" for="forms-labelOverInputCode">Change cover Image </label>
-        <input class="w-full h-10 px-3 focus:outline-none file:border-0  file:rounded-full file:text-sm file:font-semibold file:bg-teal-500 file:text-white" type="file" name="image" onChange="displayImage(this)"/>
+        <input class="w-full h-10 px-3 focus:outline-none file:border-0  file:rounded-full file:text-sm file:font-semibold file:bg-[#2271B1] file:text-white" type="file" name="image" onChange="displayImage(this)"/>
       </div>
       </div>
 
@@ -212,8 +227,12 @@ echo "<option value='0'>Category Not Available.</option>";
 
       <input type="hidden" name="idh" value="<?php echo $id; ?>">
 <input type="hidden" name="current_image" value="<?php echo $current_image; ?>">
-    <input class="w-1/2 lg:w-[200px] cursor-pointer h-10 px-3 mb-2 font-semibold bg-teal-500 text-white rounded-lg focus:shadow-outline" type="submit" name="save_item" value="Update Article" />
-   
+    
+    <div class="flex justify-center items-center my-6">
+    <input class="w-1/2 lg:w-[200px] cursor-pointer h-10 px-3 mb-2 font-semibold bg-[#2271B1] text-white  rounded-lg focus:shadow-outline" type="submit" name="save_item" value="Update" />
+
+   </div>
+
   </form>
 </div>
 

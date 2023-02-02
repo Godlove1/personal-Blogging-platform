@@ -73,7 +73,7 @@ include 'partials/header-add.php';
 
  <!-- back btn -->
 <div class=" my-6  lg:mt-12 w-full flex justify-center">
-<a href="index" class="w-auto p-1 font-semibold bg-teal-500 text-white rounded-lg "><i class="fa-solid fa-left-long mr-2"></i>Go Back</a>
+<p id="go-back" class="w-[100px] cursor-pointer p-1 font-semibold bg-[#2271B1] text-white rounded-lg "><i class="fa-solid fa-left-long mr-2"></i>Go Back</p>
 </div>
 
 
@@ -110,7 +110,7 @@ while($row=mysqli_fetch_assoc($res)){
 <div class="cation flex justify-center items-center flex-col">
 <p class="text-sm font-bold underline"><?php echo $name; ?></p>
 <p class="text-sm"><?php echo $comment; ?></p>
-    <a href="see-comments?cid=<?php echo $id; ?>" class="bg-red-500 text-white px-3 ml-2 hover:text-red-500">Delete</a>
+    <a href="see-comments?cid=<?php echo $id; ?>" onclick="confirm('Are you sure to Delete this comment?');" class="bg-red-500 text-white px-3 ml-2 hover:text-red-500">Delete</a>
 </div>
     </div>
        <!-- template -->

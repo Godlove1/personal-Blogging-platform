@@ -67,7 +67,7 @@ include 'partials/header-add.php';
 <p class="text-3xl underline">Change Password</p>
 </div>
 <!-- back button -->
-<a href="index" class="w-auto  p-1 my-6 font-semibold bg-teal-500 text-white rounded-lg "><i class="fa-solid fa-left-long mr-2"></i>Go Back</a> 
+<p id="go-back" class="w-[100px] cursor-pointer p-1 my-6 font-semibold bg-[#2271B1] text-white rounded-lg "><i class="fa-solid fa-left-long mr-2"></i>Go Back</p> 
 
 <div class="font-semibold my-2">
         <label class="block mb-1 text-gray-500" for="forms-labelOverInputCode">Username</label>
@@ -79,7 +79,7 @@ include 'partials/header-add.php';
         <input class="w-full h-10 px-3 text-base border-slate-400 placeholder-gray-300 border-2 rounded-lg focus:outline-none" type="password" placeholder="old password or enter new password" name="npass" required/>
       </div>
      
-    <input class="w-1/2 h-10 px-3 mb-2 font-semibold bg-teal-500 text-white rounded-lg focus:outline-none" type="submit" name="save_pass" value="Update"/>
+    <input class="w-1/2 h-10 px-3 mb-2 font-semibold bg-[#2271B1] text-white rounded-lg focus:outline-none" type="submit" name="save_pass" value="Update"/>
    
   </form>
 </div>

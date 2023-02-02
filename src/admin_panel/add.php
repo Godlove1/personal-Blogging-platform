@@ -3,8 +3,6 @@
 include '../config/config.inc.php';
 include 'partials/login-check.php';
 
-?>
-<?php
 
 //CHeck whether the button is clicked or not
 if(isset($_POST['publish'])){
@@ -12,6 +10,7 @@ if(isset($_POST['publish'])){
   $name = $_POST['title'];
    $category = $_POST['type'];
    $desc = $_POST['editor1'];
+   $stat=$_POST['p_status'];
   
    
   //2. Upload the Image if selected
@@ -68,6 +67,7 @@ if(isset($_POST['publish'])){
   // For Numerical we do not need to pass value inside quotes '' But for string value it is compulsory to add quotes ''
   $sql2 = "INSERT INTO tbl_blog_posts SET
       cat_id = '$category',
+      post_status=$stat,
       title = '$name',
       post_content = '$desc',
       cover_image = '$image_name'
@@ -111,8 +111,6 @@ if(isset($_POST['publish'])){
       exit();
   }}
 
-
-
 // header
 include 'partials/header-add.php';
 
@@ -122,22 +120,23 @@ include 'partials/header-add.php';
 
 <!-- add new form -->
 <div class="w-full flex justify-center items-center p-8 mt-2">
-<form class="lg:w-1/2 w-full space-y-4 font-semibold" method="post" enctype="multipart/form-data">
+<form class="w-full space-y-4 font-semibold" method="post" enctype="multipart/form-data">
     <!-- back btn -->
-    <a href="index" class="w-auto p-1 mb-2 font-semibold bg-teal-500 text-white rounded-lg "><i class="fa-solid fa-left-long mr-2"></i>Go Back</a>
+    <a href="index" class="w-auto p-1 mb-2 font-semibold bg-[#2271B1] text-white rounded-lg "><i class="fa-solid fa-left-long mr-2"></i>Go Back</a>
 
     <div class="font-semibold">
         <label class="block mb-1" for="forms-labelOverInputCode">Title</label>
-        <input class="w-full h-10 px-3 text-base placeholder-gray-300 border border-slate-400 rounded-lg focus:outline-none" type="text" placeholder="enter article title" name="title" required/>
+        <input class="w-full h-10 px-3 text-base placeholder-gray-300 border-b border-slate-400 rounded-lg focus:outline-none focus:border-[#2271B1]" type="text" placeholder="enter article title" name="title"  required/>
       </div>
       <!-- <div class="font-semibold">
         <label class="block mb-1" for="forms-labelOverInputCode">Author</label>
         <input class="w-full h-10 px-3 text-base placeholder-gray-300 border border-slate-400 rounded-lg focus:outline-none" type="text" placeholder="price of product" name="author" required/>
       </div> -->
-   
+
+   <div class="lg:flex justify-around items-center">
     <div class="font-semibold">
         <label class="block mb-1" >Select Category </label>
-        <select name="type" class="h-10 px-3 mb-2 text-base  font-semibold border border-slate-400 rounded-lg focus:outline-none" required>
+        <select name="type" class="h-10 px-3 mb-2 text-base  font-semibold border border-slate-400 rounded-lg focus:outline-none focus:border-[#2271B1]" required>
         <?php
 //Create PHP Code to display categories from Database
 //1. CReate SQL to get all active categories from database
@@ -160,22 +159,37 @@ $title = $row['name'];?>
               </select>
       </div>
 
+      <div class="font-semibold my-4">
+        <label class="block mb-1 text-gray-500" >Post Status </label>
+       <div class="flex lg:block mb-2">
+     <p>
+     <input type="radio" name="p_status" value="1" checked><span>Publish</span>
+     </p>
+     <p class="mx-4">
+     <input type="radio" name="p_status" value="0"><span>Save as Draft</span>
+     </p>
+       </div>
+      </div>
+
       <div class="font-semibold">
         <label class="block mb-1 " for="forms-labelOverInputCode">Cover Image </label>
      <div class="flex items-center">
      <img src="../images/logos/l5.png" alt="prdo_image" class="w-[200px] h-[100px] rounded-md object-contain border border-slate-500" id="imgDisplay">
-     <input class="w-full h-10 px-3 focus:outline-none file:border-0  file:rounded-full file:text-sm file:font-semibold file:bg-teal-500 file:text-white" type="file" name="image" onChange="displayImage(this)"/>
+     <input class="w-full h-10 px-3 focus:outline-none file:border-0  file:rounded-full file:text-sm file:font-semibold file:bg-[#2271B1] file:text-white" type="file" name="image" onChange="displayImage(this)" required/>
      </div>
       </div>
-
+</div>
 
     <div class="font-semibold">
         <label class="block mb-1" for="forms-labelOverInputCode">Post Content</label>
         <!-- <textarea class="w-full h-16 px-3 py-2 text-base font-semibold placeholder-gray-300 border border-slate-400 rounded-lg focus:outline-none " name="post_content"></textarea> -->
-        <textarea id="editor1" name="editor1" class="border border-slate-500"></textarea>
+        <textarea id="editor1" name="editor1" class="border border-slate-500" required></textarea>
       </div>
 
-    <input class="w-1/2 h-10 px-3 mt-6 font-semibold bg-teal-500 text-white rounded-lg focus:outline-none" type="submit" name="publish" value="Publish"/>
+   <div class="w-full flex justify-center items-center my-8 ">
+   <input class="w-1/2 p-2 font-semibold bg-[#2271B1] text-white rounded-lg cursor-pointer focus:outline-none" type="submit" name="publish" value="Publish" title="Publish article"/>
+
+   </div>
    
   </form>
 </div>

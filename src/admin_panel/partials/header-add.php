@@ -13,9 +13,7 @@
     <link rel="shortcut icon" href="../images/icons/favicon.png" type="image/x-icon">
     <!-- custom css -->
     <link rel="stylesheet" href="../css/main.css">
-    <!-- ckeditor -->
-<!-- <script src="ckeditor/ckeditor.js"></script>
-<script src="ckfinder/ckfinder.js"></script> -->
+    <!-- wysiwyg editor -->
 <script type="text/javascript" src="tinymce/tinymce.min.js"></script>
 
     <title>Admin</title>
@@ -27,48 +25,60 @@ self.location='index?cat=' + val ;
 </script>
 </head>
 <body>
-    <!-- header info -->
-    <header class="relative w-full h-[80px] bg-teal-500 text-white flex justify-between items-center  pr-4">
+   
+    <div class="flex">
+        <aside class="w-44 hidden lg:block fixed left-0 top-0 h-screen  bg-[#1D2327] py-2 pl-4">
+        <ul class="mt-[80px]">
+    <li class="flex  items-center hover:text-white hover:bg-[#2271B1] bg-[#1D2327] transition-all ease-linear w-full py-2 pl-4  text-white capitalize"><i class="fa-solid fa-globe mr-2"></i><a href="../">visit website</a></li>
+    <li class="flex items-center hover:text-white hover:bg-[#2271B1] bg-[#1D2327] transition-all ease-linear w-full py-2 pl-4  text-white capitalize"><i class="fa-solid fa-gauge mr-2"></i><a href="index">Dashboard</a></li>
+    <li class="flex items-center hover:text-white hover:bg-[#2271B1] bg-[#1D2327] transition-all ease-linear w-full py-2 pl-4  text-white capitalize"><i class="fa-solid fa-thumbtack mr-2"></i><a href="add">New Post</a></li>
+    <li class="flex items-center hover:text-white hover:bg-[#2271B1] bg-[#1D2327] transition-all ease-linear w-full py-2 pl-4  text-white capitalize"><i class="fa-brands fa-youtube mr-2"></i></i><a href="videos">Videos</a></li>
+    <li class="flex items-center hover:text-white hover:bg-[#2271B1] bg-[#1D2327] transition-all ease-linear w-full py-2 pl-4  text-white capitalize"><i class="fa-solid fa-address-card mr-2"></i><a href="profile">About</a></li>
+    <li class="flex items-center hover:text-white hover:bg-[#2271B1] bg-[#1D2327] transition-all ease-linear w-full py-2 pl-4  text-white capitalize"><i class="fa-solid fa-user mr-2"></i><a href="password">Password</a></li>
+    <li class="flex items-center hover:text-white hover:bg-[#2271B1] bg-[#1D2327] transition-all ease-linear w-full py-2 pl-4  text-white capitalize"><i class="fa-regular fa-folder mr-2"></i><a href="categories">Categories</a></li>
+   
+    <li class="flex items-center hover:text-white hover:bg-[#2271B1] bg-[#1D2327] transition-all ease-linear w-full py-2 pl-4  text-white capitalize"><i class="fa-solid fa-arrow-right-from-bracket mr-2"></i><a href="logout">log out</a></li>
+</ul>
+        </aside>
+
+        <main class="flex-1 lg:ml-44  ">
+           
+ <!-- header info -->
+ <header class="relative w-full h-[80px] bg-[#1D2327] text-white flex justify-between items-center flex-row-reverse p-4">
 <div class="website_ttitle ">
-   <img src="../images/logos/l5.png" alt="" class="w-1/2">
+<a href="index" class="text-[2rem]" title="Massi Martha">
+       <h1 class="header_h1 font-extrabold leading-tight italic "><span class="text-[#EBA826]">M</span>assi<span class="text-[#EBA826]">M</span>artha</h1>
+       </a>
 </div>
 
     <div class="menu__btn lg:hidden">
         <i class="fa-solid fa-bars font-bold text-xl" onclick="openNav()"></i>
     </div>
     
-<!-- menu for laptop devices -->
-<div class="w-full h-full hidden lg:block">
-<ul class="flex justify-end items-center w-full h-full">
-    <li class="flex justify-center items-center hover:text-red-500 hover:bg-white bg-teal-500 transition-all ease-linear w-full p-2 border-b border-white text-white capitalize"><a href="../">visit website</a></li>
-    <li class="flex justify-center items-center hover:text-red-500 hover:bg-white bg-teal-500 transition-all ease-linear w-full p-2 border-b border-white text-white capitalize"><a href="index">Home</a></li>
-    <li class="flex justify-center items-center hover:text-red-500 hover:bg-white bg-teal-500 transition-all ease-linear w-full p-2 border-b border-white text-white capitalize"><a href="profile">About</a></li>
-    <li class="flex justify-center items-center hover:text-red-500 hover:bg-white bg-teal-500 transition-all ease-linear w-full p-2 border-b border-white text-white capitalize"><a href="password">Profile</a></li>
-    <li class="flex justify-center items-center hover:text-red-500 hover:bg-white bg-teal-500 transition-all ease-linear w-full p-2 border-b border-white text-white capitalize"><a href="categories">Categories</a></li>
-   
-    <li class="flex justify-center items-center hover:text-red-500 hover:bg-white bg-teal-500 transition-all ease-linear w-full p-2 border-b border-white text-white capitalize"><a href="logout">log out</a></li>
-</ul>
-</div>
-
+    <div>
+       <p> howdy_admin</p>
+    </div>
 
 
     <!-- mobile sidenave for mobile devices -->
-<div class="side__nav absolute w-0 right-0 overflow-hidden transition-all ease-in-out h-screen top-0 bg-opacity-70 bg-slate-500">
-<div class="inner w-full h-full flex justify-end border-4 ">
+<div class="side__nav absolute w-0 left-0 overflow-hidden transition-all ease-in-out h-screen top-0 bg-opacity-70 bg-[#1D2327]">
+<div class="inner w-full h-screen flex flex-col justify-start overflow-hidden">
 <!-- close menu -->
-<div class="cm">
-<i class="fa-solid fa-close font-bold mx-2 text-2xl hover:bg-red-500 hover:text-white" onclick="closeNav()"></i>
+<div class="cm flex items-center justify-start">
+<i class="w-10 h-10 text-center fa-solid fa-close font-bold m-4 text-2xl bg-[#2271B1]  rounded-full hover:text-red-500" onclick="closeNav()"></i>
 </div>
     <!-- menu contents right here -->
-<div class="h-full">
-<ul>
-    <li class="flex justify-center items-center hover:text-red-500 hover:bg-white bg-teal-500 transition-all ease-linear w-full p-2 border-b border-white text-white capitalize"><a href="../">visit website</a></li>
-    <li class="flex justify-center items-center hover:text-red-500 hover:bg-white bg-teal-500 transition-all ease-linear w-full p-2 border-b border-white text-white capitalize"><a href="index">Home</a></li>
-    <li class="flex justify-center items-center hover:text-red-500 hover:bg-white bg-teal-500 transition-all ease-linear w-full p-2 border-b border-white text-white capitalize"><a href="profile">About</a></li>
-    <li class="flex justify-center items-center hover:text-red-500 hover:bg-white bg-teal-500 transition-all ease-linear w-full p-2 border-b border-white text-white capitalize"><a href="password">Profile</a></li>
-    <li class="flex justify-center items-center hover:text-red-500 hover:bg-white bg-teal-500 transition-all ease-linear w-full p-2 border-b border-white text-white capitalize"><a href="categories">Categories</a></li>
+<div class="w-1/2">
+<ul >
+    <li class="flex  items-center hover:text-white hover:bg-[#2271B1] bg-[#1D2327] transition-all ease-linear w-full py-2 pl-4  text-white capitalize"><i class="fa-solid fa-globe mr-2"></i><a href="../">visit website</a></li>
+    <li class="flex items-center hover:text-white hover:bg-[#2271B1] bg-[#1D2327] transition-all ease-linear w-full py-2 pl-4  text-white capitalize"><i class="fa-solid fa-gauge mr-2"></i><a href="index">Dashboard</a></li>
+    <li class="flex items-center hover:text-white hover:bg-[#2271B1] bg-[#1D2327] transition-all ease-linear w-full py-2 pl-4  text-white capitalize"><i class="fa-solid fa-thumbtack mr-2"></i><a href="add">New Post</a></li>
+    <li class="flex items-center hover:text-white hover:bg-[#2271B1] bg-[#1D2327] transition-all ease-linear w-full py-2 pl-4  text-white capitalize"><i class="fa-brands fa-youtube mr-2"></i></i><a href="videos">Videos</a></li>
+    <li class="flex items-center hover:text-white hover:bg-[#2271B1] bg-[#1D2327] transition-all ease-linear w-full py-2 pl-4  text-white capitalize"><i class="fa-solid fa-address-card mr-2"></i><a href="profile">About</a></li>
+    <li class="flex items-center hover:text-white hover:bg-[#2271B1] bg-[#1D2327] transition-all ease-linear w-full py-2 pl-4  text-white capitalize"><i class="fa-solid fa-user mr-2"></i><a href="password">Password</a></li>
+    <li class="flex items-center hover:text-white hover:bg-[#2271B1] bg-[#1D2327] transition-all ease-linear w-full py-2 pl-4  text-white capitalize"><i class="fa-regular fa-folder mr-2"></i><a href="categories">Categories</a></li>
    
-    <li class="flex justify-center items-center hover:text-red-500 hover:bg-white bg-teal-500 transition-all ease-linear w-full p-2 border-b border-white text-white capitalize"><a href="logout">log out</a></li>
+    <li class="flex items-center hover:text-white hover:bg-[#2271B1] bg-[#1D2327] transition-all ease-linear w-full py-2 pl-4  text-white capitalize"><i class="fa-solid fa-arrow-right-from-bracket mr-2"></i><a href="logout">log out</a></li>
 </ul>
 </div>
 </div>
@@ -77,3 +87,6 @@ self.location='index?cat=' + val ;
 
     </header>
     <!-- /header -->
+
+
+   
