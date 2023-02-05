@@ -22,9 +22,9 @@ include 'partials/header.php';
 
 <!-- right side content on large screen -->
 <div class="main_right  w-full lg:p-8">
-  <div class="wrapper w-full masonry lg:masonry-lg mb-8 p-4">
+  <div class="wrapper w-full  lg:masonry-lg mb-8 p-4 lg:p-4">
   <?php 
-  
+   
   // $result_count = mysqli_query($conn,"SELECT COUNT(*) As total_records FROM `tbl_blog_posts`");
   // $total_records = mysqli_fetch_array($result_count);
   // $total_records = $total_records['total_records'];
@@ -125,7 +125,7 @@ $thumbnail=$row['thumbnail'];
 
 <!-- other 3 videos -->
 <div>
-<div class="wrapper w-full masonry lg:masonry-lg my-8">
+<div class="wrapper w-full masonry lg:mv my-8">
 
 
 <?php

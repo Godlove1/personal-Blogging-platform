@@ -79,7 +79,7 @@ while($row = $get_cat->fetch_assoc()) {
     <img src="images/<?php echo $cover_image ?>" alt="<?php echo $title ?>" class="object-contain w-full md:w-1/2">
 </div>
 
-<div data-aos="fade-up" class="content my-8 px-4 lg:px-12 w-full  lg:text-xl">
+<div data-aos="fade-up" class="content my-8 px-4 text-xl lg:px-12 w-full  lg:text-xl">
 <?php echo $content ?>
 </div>
 

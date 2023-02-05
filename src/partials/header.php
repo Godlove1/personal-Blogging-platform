@@ -153,19 +153,22 @@ $pp=$row['pp'];
 </div>
 
     <!-- mobile menu (sidebar) -->
-    <div id="mobiside" class="mobile__sidebar fixed w-0  h-screen   overflow-hidden z-50 top-0 lg:hidden bg-slate-800 bg-opacity-80">
+    <div id="mobiside" class="mobile__sidebar fixed w-0  h-screen  overflow-hidden z-50 top-0 lg:hidden bg-slate-800 bg-opacity-80">
         <div class="w-full h-full border-2 ">
          
         <!-- menu-items -->
-        <div class="menu__item w-3/5 bg-white h-full relative">
+        <div class="menu__item w-3/5  text-white bg-[#921125] h-full relative">
            <!-- close button -->
         <div class="close__mo_side p-2 absolute right-[-30px]">
-          <center><i class="fa-solid fa-xmark w-5 h-5 font-bold transition-all ease-in-out hover:text-[#A23445] bg-white text-black rounded-lg shadow-md" onclick="closeNav()"></i></center>
+          <center><i class="fa-solid fa-xmark w-5 h-5 text-xl font-bold transition-all ease-in-out hover:text-[#A23445] bg-white text-black rounded-lg shadow-md" onclick="closeNav()"></i></center>
         </div>
 
         <!-- mobile menu logo -->
-        <div class="w-full h-[120px] mb-8">
-          <img src="images/logos/l5.png" alt="mmb" class="pt-4 mb-4">
+        <div class="w-full  text-center py-12 ">
+          <!-- <img src="images/logos/l5.png" alt="mmb" class="pt-4 mb-4"> -->
+          <a href="index" class="text-[2rem]" title="Massi Martha">
+       <h1 class="header_h1 text-[#EBA826] font-extrabold leading-tight italic "><span class="text-white">M</span>assi<span class="text-white">M</span>artha</h1>
+       </a>
           <div class="flex justify-around items-center">
             <a href="<?php echo $fb; ?>"class="mx-2"><i class="hover:text-[#A23445] transition-all ease-linear fa-brands fa-facebook"></i></a>
            <a href="<?php echo $tw; ?>" class="mx-2"><i class="hover:text-[#A23445] transition-all ease-linear fa-brands fa-twitter"></i></a>
@@ -176,7 +179,7 @@ $pp=$row['pp'];
 
       <!-- menu intems -->
 <ul class="">
-  <li class="border-b border-slate-500 p-4 transition-all ease-in-out hover:bg-[#A23445] hover:text-white "><a href="index" class=" uppercase">home</a></li>
+  <li class="border-b border-white p-4 transition-all ease-in-out hover:bg-[#A23445] hover:text-white "><a href="index" class=" uppercase">home</a></li>
 
   <?php
 $get_cats = $db->query("SELECT * FROM tbl_categories order by id ASC");
@@ -185,11 +188,11 @@ while($row = $get_cats->fetch_assoc()) {
    $c_name = $row['name'];
     ?>
 
-<li class="border-b  border-slate-500 p-4 transition-all ease-in-out hover:bg-[#A23445] hover:text-white"><a href="all-articles?<?php echo $c_name.''.md5($c_name); ?>&cat=<?php echo $c_id; ?>" class="  uppercase"><?php echo $c_name; ?></a></li>
+<li class="border-b  border-white rounded-lg p-4 transition-all ease-in-out hover:bg-white hover:text-[#A23445]"><a href="all-articles?<?php echo $c_name.''.md5($c_name); ?>&cat=<?php echo $c_id; ?>" class="  uppercase"><?php echo $c_name; ?></a></li>
 
 <?php } ?>
-
-  <li class="border-b  border-slate-500 p-4 transition-all ease-in-out hover:bg-[#A23445] hover:text-white"><a href="" class="uppercase">contact</a></li>
+<!-- 
+  <li class="border-b  border-slate-500 p-4 transition-all ease-in-out hover:bg-[#A23445] hover:text-white"><a href="" class="uppercase">contact</a></li> -->
 </ul>
 
         </div>

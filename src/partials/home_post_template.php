@@ -1,10 +1,10 @@
 
 <!-- post template home page -->
-<div  data-aos="fade-up" data-aos-duration="1000" class="post border-2 border-slate-300 shadow-lg hover:shadow-none rounded-md my-4 w-full lg:overflow-hidden m-2 break-inside">
+<div  data-aos="fade-up" data-aos-duration="1000" class="post shadow-lg hover:shadow-none rounded-lg my-8 w-full overflow-hidden  break-inside">
 <a href="blog_article?<?php echo md5($hp_id); ?>&post_key=<?php echo $hp_id; ?>" title="<?php echo $hp_title; ?>">
 <!-- content -->
  <!-- post_image -->
- <div class="post__image w-full lg:h-[200px] overflow-hidden">
+ <div class="post__image w-full  lg:h-[200px] overflow-hidden">
         <img src="images/<?php echo $hp_cim; ?>" alt="<?php echo $hp_title; ?>" class="w-full h-full  object-cover">
       </div>
 <!-- post descibtion -->

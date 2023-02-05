@@ -12,8 +12,13 @@
         }
         .masonry-lg {
             column-gap: 1.5em;
+            column-count: 2;
+        }
+        .mv{
+            column-gap: 1.5em;
             column-count: 3;
         }
+
         .break-inside {
             break-inside: avoid;
         }

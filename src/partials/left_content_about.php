@@ -17,9 +17,9 @@
 
 <div class="me w-full flex justify-center items-center flex-col p-2">
   <div class="img_box w-[200px] h-[200px] overflow-hidden rounded-[50%]">
-    <img src="images/<?php echo $pp; ?>" alt="Massi Martha" class="object-cover w-full h-full">
+    <img src="images/<?php echo $pp; ?>" alt="Massi Martha" class="object-cover shadow-lg w-full h-full">
   </div>
-  <div data-aos="fade-up" data-aos-duration="1000" class="content f mt-4 ">
+  <div data-aos="fade-up" data-aos-duration="1000" class="content text-xl mt-4 ">
   <?php echo $abt; ?>
   </div>
 </div>
@@ -32,7 +32,7 @@
     <h2 class="uppercase header_h1">latest posts</h2>
   </div>
   
-  <div class="w-full lg:flex justify-center items-center flex-col p-2">
+  <div class="w-full lg:flex justify-center items-center flex-col  p-2">
   <?php
 $get_cats = $db->query("SELECT * FROM tbl_blog_posts order by id DESC limit 0,5");
 while($row = $get_cats->fetch_assoc()) {
@@ -47,9 +47,9 @@ while($row = $get_cats->fetch_assoc()) {
     <div data-aos="fade-up" data-aos-duration="1000" class="wrapper w-full flex justify-between max-h-[150px] overflow-hidden border-b border-slate-600 mb-4">
       <div class="data-s w-full">
        <a href="blog_article?<?php echo md5($lp_id); ?>&post_key=<?php echo $lp_id; ?>" title="<?php echo $lp_title ?>" class="hover:text-[#A23445] transition-all ease-in">
-         <h3 class="text-sm font-bold"><?php echo $lp_title; ?></h3>
+         <h3 class="text-xl font-bold"><?php echo $lp_title; ?></h3>
        </a>
-        <p class="capitalize text-xs text-slate-600 my-4"><?php echo $lp_date; ?></p>
+        <p class="capitalize text-sm text-slate-600 my-4"><?php echo $lp_date; ?></p>
       </div>
       <div class="img w-2/5 h-[100px] overflow-hidden rounded-md mb-2">
        <a href="blog_article?<?php echo md5($lp_id); ?>&post_key=<?php echo $lp_id; ?>" title="<?php echo $lp_title; ?>">
