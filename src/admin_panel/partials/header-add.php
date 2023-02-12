@@ -48,7 +48,7 @@ self.location='index?cat=' + val ;
  <header class="relative w-full h-[80px] bg-[#1D2327] text-white flex justify-between items-center flex-row-reverse p-4">
 <div class="website_ttitle ">
 <a href="index" class="text-[2rem]" title="Massi Martha">
-       <h1 class="header_h1 font-extrabold leading-tight italic "><span class="text-[#EBA826]">M</span>assi<span class="text-[#EBA826]">M</span>artha</h1>
+       <h1 class="header_h1 font-extrabold leading-tight italic "><span class="text-[#EBA826]">M</span>assi</h1>
        </a>
 </div>
 
