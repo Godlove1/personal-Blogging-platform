@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 02, 2023 at 06:16 PM
+-- Generation Time: Feb 12, 2023 at 02:42 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -136,7 +136,8 @@ INSERT INTO `tbl_comments` (`id`, `comment`, `post_id`, `username`, `date`) VALU
 (3, 'thanks', 1, 'massi', '0000-00-00'),
 (4, 'eet', 3, 'godlove_01', '0000-00-00'),
 (6, 'cool', 5, 'bereta', '0000-00-00'),
-(8, 'Incidunt in sed dol', 7, 'cekynah', '0000-00-00');
+(8, 'Incidunt in sed dol', 7, 'cekynah', '0000-00-00'),
+(9, '🔥🔥🔥', 9, 'Stahn', '0000-00-00');
 
 -- --------------------------------------------------------
 
@@ -235,7 +236,7 @@ ALTER TABLE `tbl_categories`
 -- AUTO_INCREMENT for table `tbl_comments`
 --
 ALTER TABLE `tbl_comments`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `tbl_vlogs`
