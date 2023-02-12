@@ -83,10 +83,10 @@ if($cur_page == 'blog_article'){
 
 
     <!-- logo/mobile -->
-    <div class="lg:hidden w-full flex justify-center items-center p-4  text-white bg-[#921125]">
+    <div class="lg:hidden w-full flex justify-center items-center p-2  text-white bg-[#921125]">
     
-       <a href="index" class="text-[3rem]" title="Massi Martha">
-       <h1 class="header_h1 font-extrabold leading-tight italic "><span class="text-[#EBA826]">M</span>assi<span class="text-[#EBA826]">M</span>artha</h1>
+       <a href="index" class="text-[2rem]" title="Massi Martha">
+       <h1 class="header_h1 font-extrabold leading-tight italic "><span class="text-[#EBA826]">M</span>assi</h1>
        </a>
 
        <!-- <div class="flex items-center p-2 cursor-pointer bg-[#A23445]">
@@ -115,8 +115,8 @@ if($cur_page == 'blog_article'){
         
            </div>
 
-       <a href="index" class="text-[3.5rem]">
-       <h1 class="header_h1 font-extrabold leading-tight italic "><span class="text-[#EBA826]">M</span>assi<span class="text-[#EBA826]">M</span>artha</h1>
+       <a href="index" class="text-[3rem]">
+       <h1 class="header_h1 font-extrabold leading-tight italic "><span class="text-[#EBA826]">M</span>assi</h1>
        </a>
 
        <div title="subscribe to our youtube" class="flex items-center p-2 cursor-pointer bg-[#A23445]">
@@ -164,12 +164,12 @@ $pp=$row['pp'];
         </div>
 
         <!-- mobile menu logo -->
-        <div class="w-full  text-center py-12 ">
+        <div class="w-full  text-center pb-12 ">
           <!-- <img src="images/logos/l5.png" alt="mmb" class="pt-4 mb-4"> -->
           <a href="index" class="text-[2rem]" title="Massi Martha">
-       <h1 class="header_h1 text-[#EBA826] font-extrabold leading-tight italic "><span class="text-white">M</span>assi<span class="text-white">M</span>artha</h1>
+       <h1 class="header_h1 text-[#EBA826] font-extrabold leading-tight italic "><span class="text-white">M</span>assi</h1>
        </a>
-          <div class="flex justify-around items-center">
+          <div class="flex justify-around items-center mt-4">
             <a href="<?php echo $fb; ?>"class="mx-2"><i class="hover:text-[#A23445] transition-all ease-linear fa-brands fa-facebook"></i></a>
            <a href="<?php echo $tw; ?>" class="mx-2"><i class="hover:text-[#A23445] transition-all ease-linear fa-brands fa-twitter"></i></a>
            <a href="<?php echo $ig; ?>" class="mx-2"><i class="hover:text-[#A23445] transition-all ease-linear fa-brands fa-instagram"></i></a>
@@ -191,8 +191,8 @@ while($row = $get_cats->fetch_assoc()) {
 <li class="border-b  border-white rounded-lg p-4 transition-all ease-in-out hover:bg-white hover:text-[#A23445]"><a href="all-articles?<?php echo $c_name.''.md5($c_name); ?>&cat=<?php echo $c_id; ?>" class="  uppercase"><?php echo $c_name; ?></a></li>
 
 <?php } ?>
-<!-- 
-  <li class="border-b  border-slate-500 p-4 transition-all ease-in-out hover:bg-[#A23445] hover:text-white"><a href="" class="uppercase">contact</a></li> -->
+
+  <li class="border-slate-500 p-4 transition-all ease-in-out hover:bg-[#A23445] hover:text-white"><a href="admin_panel" class="uppercase">Log in</a></li>
 </ul>
 
         </div>

@@ -61,13 +61,13 @@ $quer2="SELECT * FROM tbl_categories order by id DESC";
   if(isset($_GET['cat']) && strlen($_GET['cat'])<2){
     $type_cat=$_GET['cat'];
 
-    $result_count = mysqli_query($conn,"SELECT COUNT(*) As total_records FROM `tbl_blog_posts` WHERE cat_id=$type_cat");
+    $result_count = mysqli_query($conn,"SELECT COUNT(*) As total_records FROM `tbl_blog_posts` WHERE cat_id=$type_cat AND post_status=1");
     $total_records = mysqli_fetch_array($result_count);
     $total_records = $total_records['total_records'];
     $total_no_of_pages = ceil($total_records / $total_records_per_page);
     $second_last = $total_no_of_pages - 1;   
     
-$sql = "SELECT * FROM tbl_blog_posts WHERE cat_id=$type_cat order by id DESC LIMIT $offset, $total_records_per_page";
+$sql = "SELECT * FROM tbl_blog_posts WHERE cat_id=$type_cat AND post_status=1 order by id DESC LIMIT $offset, $total_records_per_page";
 //Execute the qUery
 $res = mysqli_query($conn, $sql);
 $count = mysqli_num_rows($res);
@@ -84,7 +84,7 @@ $op_date= date("d, F Y ", strtotime($row['date']));
     <?php
   include 'partials/other_post_template.php';
   ?>
-
+ 
 <?php
 }
 ?>
@@ -100,17 +100,18 @@ $op_date= date("d, F Y ", strtotime($row['date']));
 <div class="text-center font-bold">
   <p>No Articles for availbale for this category, try another!</p>
 </div>
+</div>
   <?php
 } } else{
 
   
-  $result_count = mysqli_query($conn,"SELECT COUNT(*) As total_records FROM `tbl_blog_posts`");
+  $result_count = mysqli_query($conn,"SELECT COUNT(*) As total_records FROM `tbl_blog_posts`  WHERE post_status=1");
   $total_records = mysqli_fetch_array($result_count);
   $total_records = $total_records['total_records'];
   $total_no_of_pages = ceil($total_records / $total_records_per_page);
   $second_last = $total_no_of_pages - 1;
    
-$sql = "SELECT * FROM tbl_blog_posts order by id DESC LIMIT $offset, $total_records_per_page";
+$sql = "SELECT * FROM tbl_blog_posts  WHERE post_status=1 order by id DESC LIMIT $offset, $total_records_per_page";
 //Execute the qUery
 $res = mysqli_query($conn, $sql);
 $count = mysqli_num_rows($res);

@@ -5,5 +5,12 @@ admin_panel
 username:massi
 password:massi
 
-
+on kannalgroup hosting
 visit critiqsite for more inspo on home page
+
+
+online db
+
+db_name: kannozwu_massi
+pass : Ah+?nBQtwiLD
+username: kannozwu_massim
