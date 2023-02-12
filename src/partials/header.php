@@ -85,7 +85,7 @@ if($cur_page == 'blog_article'){
     <!-- logo/mobile -->
     <div class="lg:hidden w-full flex justify-center items-center p-2  text-white bg-[#921125]">
     
-       <a href="index" class="text-[2rem]" title="Massi Martha">
+       <a href="index" class="text-[2.5rem]" title="Massi Martha">
        <h1 class="header_h1 font-extrabold leading-tight italic "><span class="text-[#EBA826]">M</span>assi</h1>
        </a>
 
