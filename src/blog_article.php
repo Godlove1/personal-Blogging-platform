@@ -20,8 +20,10 @@ include 'config/config.inc.php';
                 $blog_id = $row['id'];
                 $title = $row['title'];
                 $content = $row['post_content'];
+                // $cont=substr($content,100);
                $cover_image = $row['cover_image'];
                 $category=$row['cat_id'];
+                $seo = $row['post_seo'];
                 $post_date=date("d, F Y ", strtotime($row['date']));
             }
             else

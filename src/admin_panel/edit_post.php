@@ -25,6 +25,7 @@ if(isset($_GET['id'])){
     $categ = $row['cat_id'];
   $pdesc = $row['post_content'];
   $status=$row['post_status'];
+  $seoo = $row['post_seo'];
  
 }
  
@@ -37,6 +38,7 @@ if(isset($_POST['save_item'])){
    $current_image = $_POST['current_image'];
   $id=$_POST['idh'];
   $stat=$_POST['p_status'];
+  $seo = mysqli_real_escape_string($conn,$_POST['seo']);
 
   //2. Upload the image if selected
   if(isset($_FILES['image']['name'])){
@@ -103,6 +105,7 @@ if(isset($_POST['save_item'])){
       cat_id = '$category',
       post_status=$stat,
       post_content= '$desc',
+      post_seo='$seo',
       cover_image = '$image_name'
 
       WHERE id=$id
@@ -218,9 +221,15 @@ echo "<option value='0'>Category Not Available.</option>";
       </div>
       </div>
 
+
+      <div class="">
+        <label class="font-semibold"  for="forms-labelOverInputCode">Article SEO <span class="text-xs italic">(keywords only,comma separated words)</span> </label>
+    
+        <input name="seo" value="<?php echo $seoo; ?>" class="w-full h-10 px-3 text-base placeholder-gray-300 border border-slate-400 rounded-lg focus:outline-none"/>
+      </div>
+
       <div class="font-semibold">
         <label class="block mb-1 text-gray-500" for="forms-labelOverInputCode">Post content</label>
-        <!-- <textarea class="w-full h-16 px-3 py-2 text-base font-semibold placeholder-gray-300 border border-slate-400 rounded-lg focus:outline-none " name="desc"></textarea> -->
         <textarea id="editor1" name="editor1"><?php echo $pdesc; ?></textarea>
       </div>
 

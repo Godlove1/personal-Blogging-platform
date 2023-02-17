@@ -11,6 +11,7 @@ if(isset($_POST['publish'])){
    $category = $_POST['type'];
    $desc = $_POST['editor1'];
    $stat=$_POST['p_status'];
+   $seo = mysqli_real_escape_string($conn,$_POST['seo']);
   
    
   //2. Upload the Image if selected
@@ -70,6 +71,7 @@ if(isset($_POST['publish'])){
       post_status=$stat,
       title = '$name',
       post_content = '$desc',
+      post_seo='$seo',
       cover_image = '$image_name'
   ";
 
@@ -180,9 +182,14 @@ $title = $row['name'];?>
       </div>
 </div>
 
+<div class="">
+        <label class="font-semibold"  for="forms-labelOverInputCode">Article SEO <span class="text-xs italic">(keywords only,comma separated words)</span> </label>
+    
+        <input name="seo" class="w-full h-10 px-3 text-base placeholder-gray-300 border border-slate-400 rounded-lg focus:outline-none"/>
+      </div>
+
     <div class="font-semibold">
         <label class="block mb-1" for="forms-labelOverInputCode">Post Content</label>
-        <!-- <textarea class="w-full h-16 px-3 py-2 text-base font-semibold placeholder-gray-300 border border-slate-400 rounded-lg focus:outline-none " name="post_content"></textarea> -->
         <textarea id="editor1" name="editor1" class="border border-slate-500"></textarea>
       </div>
 
