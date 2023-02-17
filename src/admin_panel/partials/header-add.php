@@ -14,7 +14,8 @@
     <!-- custom css -->
     <link rel="stylesheet" href="../css/main.css">
     <!-- wysiwyg editor -->
-<script type="text/javascript" src="tinymce/tinymce.min.js"></script>
+    <script src="https://cdn.tiny.cloud/1/g1zemnecrffm9foubaxwbrdcn4eefyegw09o0jq6z6m923xr/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+<!-- <script type="text/javascript" src="tinymce/tinymce.min.js"></script> -->
 
     <title>Admin</title>
     <script language=JavaScript>
@@ -25,7 +26,7 @@ self.location='index?cat=' + val ;
 </script>
 </head>
 <body>
-   
+
     <div class="flex">
         <aside class="w-44 hidden lg:block fixed left-0 top-0 h-screen  bg-[#1D2327] py-2 pl-4">
         <ul class="mt-[80px]">

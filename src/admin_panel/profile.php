@@ -6,7 +6,7 @@ include 'partials/login-check.php';
 
 //Check whether the Submit Button is Clicked or not
 if(isset($_POST['update'])){
-    $abt = $_POST['about'];
+    $abt = mysqli_real_escape_string($conn,$_POST['about']);
     $fb = $_POST['fb'];
     $tw = $_POST['tw'];
     $yt = $_POST['yt'];
