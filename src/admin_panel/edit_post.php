@@ -3,10 +3,8 @@
 // database connection file
 include '../config/config.inc.php';
 include 'partials/login-check.php';
-
-?>
-<?php
-
+// Start output buffering
+ob_start();
 // query selected Article for editing
 if(isset($_GET['id'])){
   //Get all the details
@@ -18,139 +16,169 @@ if(isset($_GET['id'])){
   //Get the value based on query executed
   $row = mysqli_fetch_assoc($res2);
   //Get the Individual Values of Selected Food
-    $id = $row['id'];
-    $name = $row['title'];
-    $c_image  = '../images/'.$row['cover_image'];
-    $current_image  = $row['cover_image'];
-    $categ = $row['cat_id'];
+  $id = $row['id'];
+  $name = $row['title'];
+  $c_image  = '../images/'.$row['cover_image'];
+  $current_image  = $row['cover_image'];
+  $categ = $row['cat_id'];
   $pdesc = $row['post_content'];
   $status=$row['post_status'];
   $seoo = $row['post_seo'];
- 
 }
- 
+
 // save edited artcile
 //save to db
 if(isset($_POST['save_item'])){
-  $name = $_POST['title'];
-   $category = $_POST['type'];
-   $desc = $_POST['editor1'];
-   $current_image = $_POST['current_image'];
-  $id=$_POST['idh'];
-  $stat=$_POST['p_status'];
+  $name = mysqli_real_escape_string($conn, $_POST['title']);
+  $category = mysqli_real_escape_string($conn, $_POST['type']);
+  $desc = mysqli_real_escape_string($conn, $_POST['editor1']);
+  $current_image = mysqli_real_escape_string($conn, $_POST['current_image']);
+  $id = mysqli_real_escape_string($conn, $_POST['idh']);
+  $stat = mysqli_real_escape_string($conn, $_POST['p_status']);
   $seo = mysqli_real_escape_string($conn,$_POST['seo']);
+  
+  // validate form fields
+  $errors = array();
 
-  //2. Upload the image if selected
-  if(isset($_FILES['image']['name'])){
-      $image_name = $_FILES['image']['name']; //New Image NAme
-      if($image_name!=""){
-          $ext = end(explode('.', $image_name)); //Gets the extension of the image
-          $image_name = "editedmartha-".rand(0000, 9999).'.'.$ext; //THis will be renamed image
-          //Get the Source Path and DEstination PAth
-          $src_path = $_FILES['image']['tmp_name']; //Source Path
-          $dest_path = "../images/".$image_name; //DEstination Path
-          //Upload the image
-          $upload = move_uploaded_file($src_path, $dest_path);
-          /// CHeck whether the image is uploaded or not
-          if($upload==false){
-              //FAiled to Upload
-              $_SESSION['login'] ='
-              <div class="w-auto bg-red-100 border-t-4 border-red-500 my-4 rounded-b text-red-900 px-4 py-3 shadow-md" role="alert">
-             <div class="flex">
-               <div class="py-1"><svg class="fill-current h-6 w-6 text-red-500 mr-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M2.93 17.07A10 10 0 1 1 17.07 2.93 10 10 0 0 1 2.93 17.07zm12.73-1.41A8 8 0 1 0 4.34 4.34a8 8 0 0 0 11.32 11.32zM9 11V9h2v6H9v-4zm0-6h2v2H9V5z"/></svg></div>
-               <div>
-                 <p class="font-bold">Something went Wrong</p>
-                 <p class="text-sm">Error uploading picture</p>
-               </div>
-             </div>
-           </div>
-              ';
-           header('location:index');
-           exit();
-              //STop the process
-          }
-          //3. Remove the image if new image is uploaded and current image exists
-          //B. Remove current Image if Available
-          if($current_image!=""){
-              $remove_path = "../images/".$current_image;
-              $remove = unlink($remove_path);
-              //Check whether the image is removed or not
-              if($remove==false){
-                  //failed to remove current image
-                  $_SESSION['login'] ='
-                  <div class="w-auto bg-red-100 border-t-4 border-red-500 my-4 rounded-b text-red-900 px-4 py-3 shadow-md" role="alert">
-                 <div class="flex">
-                   <div class="py-1"><svg class="fill-current h-6 w-6 text-red-500 mr-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M2.93 17.07A10 10 0 1 1 17.07 2.93 10 10 0 0 1 2.93 17.07zm12.73-1.41A8 8 0 1 0 4.34 4.34a8 8 0 0 0 11.32 11.32zM9 11V9h2v6H9v-4zm0-6h2v2H9V5z"/></svg></div>
-                   <div>
-                     <p class="font-bold">Something went Wrong</p>
-                     <p class="text-sm">Error Removing current picture</p>
-                   </div>
-                 </div>
-               </div>
-                  ';
-               header('location:index');
-               exit();
-                  //STop the process
-              }
-          }
-      }else{
-          $image_name = $current_image; //Default Image when Image is Not Selected
-      }
-  }else{
-      $image_name = $current_image; //Default Image when Button is not Clicked
+  if (empty($name)) {
+    $errors[] = 'Title is required';
   }
-  //4. Update the Food in Database
-  $sql3 = "UPDATE tbl_blog_posts SET
-       title = '$name',
-      cat_id = '$category',
-      post_status=$stat,
-      post_content= '$desc',
-      post_seo='$seo',
-      cover_image = '$image_name'
 
-      WHERE id=$id
-  ";
+  if (empty($desc)) {
+    $errors[] = 'Content is required';
+  }
 
-  //Execute the SQL Query
-  $res3 = mysqli_query($conn, $sql3);
+  if ($category == '0') {
+    $errors[] = 'Category is required';
+  }
 
-  //CHeck whether the query is executed or not
-  if($res3==true){
-      //Query Exectued and Food Updated
-      $_SESSION['login'] = ' 
+  if (!empty($_FILES['image']['name'])) {
+    $image_name = $_FILES['image']['name'];
+    $image_type = $_FILES['image']['type'];
+    $image_size = $_FILES['image']['size'];
+    $temp_name = $_FILES['image']['tmp_name'];
+
+    $allowed_types = array('image/jpeg', 'image/png', 'image/gif', 'image/webp');
+
+    if (!in_array($image_type, $allowed_types)) {
+      $errors[] = 'File type not supported. Only JPEG, PNG, GIF, and WebP images are allowed.';
+    }
+  }
+
+  // if there are errors, display them and do not save to database
+  if (!empty($errors)) {
+    $error_message = implode('<br>', $errors);
+    $_SESSION['login'] = '
+      <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        '.$error_message.'
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+    ';
+  } else {
+    // upload image file
+    if (!empty($image_name)) {
+      $parts = explode('.', $image_name);
+      $ext = end($parts);
+      $image_name = 'Blog_'.rand(000, 999).'.'.$ext;
+      $source_path = $temp_name;
+      $destination_path = '../images/'.$image_name;
+
+      // resize image to 50% of original size
+      list($width, $height) = getimagesize($source_path);
+      $new_width = $width / 2;
+      $new_height = $height / 2;
+
+      if ($image_type == 'image/jpeg') {
+        $source = imagecreatefromjpeg($source_path);
+        $destination = imagecreatetruecolor($new_width, $new_height);
+        imagecopyresampled($destination, $source, 0, 0, 0, 0, $new_width, $new_height, $width, $height);
+        imagejpeg($destination, $destination_path, 50);
+      } elseif ($image_type == 'image/png') {
+        $source = imagecreatefrompng($source_path);
+        $destination = imagecreatetruecolor($new_width, $new_height);
+        imagecopyresampled($destination, $source, 0, 0, 0, 0, $new_width, $new_height, $width, $height);
+        imagepng($destination, $destination_path, 5);
+      } elseif ($image_type == 'image/gif') {
+        $source = imagecreatefromgif($source_path);
+        $destination = imagecreatetruecolor($new_width, $new_height);
+        imagecopyresampled($destination, $source, 0, 0, 0, 0, $new_width, $new_height, $width, $height);
+        imagegif($destination, $destination_path);
+      } elseif ($image_type == 'image/webp') {
+        $source = imagecreatefromwebp($source_path);
+        $destination = imagecreatetruecolor($new_width, $new_height);
+        imagecopyresampled($destination, $source, 0, 0, 0, 0, $new_width, $new_height, $width, $height);
+        imagewebp($destination, $destination_path, 50);
+      }
+
+      // delete previous image file
+      if (!empty($current_image)) {
+        $remove_path = '../images/'.$current_image;
+        $remove = unlink($remove_path);
+
+        if (!$remove) {
+          $_SESSION['login'] = '
+          <div class="w-auto bg-red-100 border-t-4 border-red-500 my-4 rounded-b text-green-900 px-4 py-3 shadow-md" role="alert">
+            <div class="flex">
+              <div class="py-1"><svg class="fill-current h-6 w-6 text-red-500 mr-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M2.93 17.07A10 10 0 1 1 17.07 2.93 10 10 0 0 1 2.93 17.07zm12.73-1.41A8 8 0 1 0 4.34 4.34a8 8 0 0 0 11.32 11.32zM9 11V9h2v6H9v-4zm0-6h2v2H9V5z"/></svg></div>
+              <div> 
+                <p class="font-bold">ERROR!</p>
+                <p class="text-sm">error removing prevoius image.</p>
+              </div>
+            </div>
+          </div>
+        ';
+          header('location: index');
+          exit;
+        }
+      }
+    } else {
+      $image_name = $current_image;
+    }
+
+    // save to database
+    $sql = "UPDATE tbl_blog_posts SET
+      cat_id='$category',
+      title='$name',
+      cover_image='$image_name',
+      post_content='$desc',
+      post_status='$stat',
+      post_seo='$seo'
+      WHERE id='$id'
+    ";
+    $res = mysqli_query($conn, $sql);
+
+    if ($res) {
+      $_SESSION['login'] = '
       <div class="w-auto bg-green-100 border-t-4 border-green-500 my-4 rounded-b text-green-900 px-4 py-3 shadow-md" role="alert">
-      <div class="flex">
-        <div class="py-1"><svg class="fill-current h-6 w-6 text-green-500 mr-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M2.93 17.07A10 10 0 1 1 17.07 2.93 10 10 0 0 1 2.93 17.07zm12.73-1.41A8 8 0 1 0 4.34 4.34a8 8 0 0 0 11.32 11.32zM9 11V9h2v6H9v-4zm0-6h2v2H9V5z"/></svg></div>
-        <div> 
-          <p class="font-bold">SUCCESS!</p>
-          <p class="text-sm">Article Successfully Updated.</p>
+        <div class="flex">
+          <div class="py-1"><svg class="fill-current h-6 w-6 text-green-500 mr-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M2.93 17.07A10 10 0 1 1 17.07 2.93 10 10 0 0 1 2.93 17.07zm12.73-1.41A8 8 0 1 0 4.34 4.34a8 8 0 0 0 11.32 11.32zM9 11V9h2v6H9v-4zm0-6h2v2H9V5z"/></svg></div>
+          <div> 
+            <p class="font-bold">SUCCESS!</p>
+            <p class="text-sm">Article Updated.</p>
+          </div>
         </div>
       </div>
-      </div>
-      ';
-      header('location:index');
-      exit();
-  }
-  else{
-      //Failed to Update Food
-      $_SESSION['login'] ='
+    ';
+      header('location: index');
+    } else {
+      $_SESSION['login'] = '
       <div class="w-auto bg-red-100 border-t-4 border-red-500 my-4 rounded-b text-red-900 px-4 py-3 shadow-md" role="alert">
-     <div class="flex">
-       <div class="py-1"><svg class="fill-current h-6 w-6 text-red-500 mr-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M2.93 17.07A10 10 0 1 1 17.07 2.93 10 10 0 0 1 2.93 17.07zm12.73-1.41A8 8 0 1 0 4.34 4.34a8 8 0 0 0 11.32 11.32zM9 11V9h2v6H9v-4zm0-6h2v2H9V5z"/></svg></div>
-       <div>
-         <p class="font-bold">Something went Wrong</p>
-         <p class="text-sm">Error Editing Article</p>
-       </div>
-     </div>
-   </div>
-      ';
-   header('location:index');
-   exit();
+        <div class="flex">
+          <div class="py-1"><svg class="fill-current h-6 w-6 text-red-500 mr-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M2.93 17.07A10 10 0 1 1 17.07 2.93 10 10 0 0 1 2.93 17.07zm12.73-1.41A8 8 0 1 0 4.34 4.34a8 8 0 0 0 11.32 11.32zM9 11V9h2v6H9v-4zm0-6h2v2H9V5z"/></svg></div>
+          <div> 
+            <p class="font-bold">ERROR</p>
+            <p class="text-sm">Error uploading edits.</p>
+          </div>
+        </div>
+      </div>
+    ';
+      header('location: index');
+    }
   }
 }
 
-
-
+// Flush output buffer and send output to browser
+ob_end_flush();
 // header
 include 'partials/header-add.php';
 
@@ -250,119 +278,47 @@ echo "<option value='0'>Category Not Available.</option>";
 
 <!-- tinymce init -->
 <script>
-      // TinyMCE CMS Starter Config
-      // Quick start video - https://www.youtube.com/watch?v=cbkrZMbVF60
-
-      tinymce.init({
-        // Select the element(s) to add TinyMCE to using any valid CSS selector
+    tinymce.init({
         selector: 'textarea',
-
-        // Tip - To keep TinyMCE lean, only include the plugins you need.
-        plugins: `a11ychecker advcode advlist advtable anchor autocorrect autosave editimage image link linkchecker lists media mediaembed pageembed powerpaste searchreplace table template tinymcespellchecker visualblocks wordcount`,
-        // Configure the toolbar so it fits your app. There are many
-        // different configuration options available:
-        // https://www.tiny.cloud/docs/tinymce/6/toolbar-configuration-options/
-        toolbar: 'undo redo | styles | bold italic underline strikethrough | align | table link image media pageembed | bullist numlist outdent indent | spellcheckdialog a11ycheck code',
-
-        // The Accessibility Checker plugin offers extensive controls over which
-        // level of compliance to test against and which rules to enforce.
-        // https://www.tiny.cloud/docs/tinymce/6/a11ychecker/
-        a11ychecker_level: 'aaa',
-
-        // Configure the style menu and define available formats
-        // Here, we have defined a medium sized image format as an example.
-        // There is a lot more you can do with formats:
-        // https://www.tiny.cloud/docs/tinymce/6/filter-content/
-        style_formats: [
-          {title: 'Heading 1', block: 'h1'},
-          {title: 'Heading 2', block: 'h2'},
-          {title: 'Paragraph', block: 'p'},
-          {title: 'Blockquote', block: 'blockquote'},
-          {title: 'Image formats'},
-          {title: 'Medium', selector: 'img', classes: 'medium'},
-        ],
-
-        // Turn off manual resizing of images as we want to control image sizes
-        // using the formats previously specified.
-        // https://www.tiny.cloud/docs/tinymce/6/content-behavior-options/#object_resizing
-        object_resizing: true,
-
-        // TinyMCE offers a wide range of options to control what classes, styles
-        // and attributes are allowed in the content. All other classes will be
-        // filtered out.
-        // https://www.tiny.cloud/docs/tinymce/6/content-filtering/#valid_classes
-        valid_classes: {
-          'img': 'medium',
-          'div': 'related-content'
-        },
-
-        // Enable image fig captions
-        // https://www.tiny.cloud/docs/tinymce/6/image/#image_caption
+        plugins: 'link image lists paste table',
+        toolbar: 'undo redo | bold italic underline | alignleft aligncenter alignright | bullist numlist | link image | table',
+        menubar: false,
+        branding: false,
+        statusbar: false,
+        height: 200,
+        resize: 'both',
+        image_title: true,
         image_caption: true,
-
-        // Templates is useful for when users need to insert repeatable content,
-        // for example a related content block.
-        // https://www.tiny.cloud/docs/tinymce/6/template/
-        templates: [
-          {
-            title: 'Related content',
-            description: 'This template inserts a related content block',
-            content: '<div class="related-content"><h3>Related content</h3><p><strong>{$rel_lede}</strong> {$rel_body}</p></div>'
-          }
+        link_title: true,
+        link_assume_external_targets: true,
+        convert_urls: false,
+        target_list: false,
+        rel_list: false,
+        image_class_list: [
+            {title: 'None', value: ''},
+            {title: 'Responsive', value: 'img-fluid'},
+            {title: 'Rounded', value: 'rounded'},
+            {title: 'Circle', value: 'rounded-circle'},
+            {title: 'Thumbnail', value: 'img-thumbnail'}
         ],
-
-        // This option makes it easy to inject dynamic content into the template.
-        template_replace_values: {
-          rel_lede: 'Lorem ipsum',
-          rel_body: 'dolor sit amet...',
+        image_dimensions: false,
+        image_advtab: false,
+        image_description: false,
+        image_uploadtab: false,
+        images_upload_url: 'your-image-upload-handler',
+        paste_as_text: true,
+        paste_word_valid_elements: 'b,strong,i,em,h1,h2',
+        paste_data_images: true,
+        table_default_attributes: {
+            border: '1'
         },
-
-        // Specifies the dynamic content inside the insert template dialog preview
-        template_preview_replace_values: {
-          rel_lede: 'Lorem ipsum',
-          rel_body: 'dolor sit amet...',
+        table_default_styles: {
+            'border-collapse': 'collapse'
         },
-
-        // Prevent editing of the related content block by making the whole
-        // block noneditable.
-        // https://www.tiny.cloud/docs/tinymce/6/content-behavior-options/#noneditable_class
-        noneditable_class: 'related-content',
-
-        // TinyMCE supports multilingual content. By defining the language
-        // not only are you helping with accessibility, the spellchecker plugin
-        // also switches language.
-        // https://www.tiny.cloud/docs/tinymce/6/content-localization/#content_langs
-        content_langs: [
-          {title: 'English (US)', code: 'en_US'},
-          {title: 'French', code: 'fr'}
-        ],
-
-        // Specify the height of the editor, including toolbars and the statusbar.
-        // https://www.tiny.cloud/docs/tinymce/6/customize-ui/#changing-editor-height-and-width
-        height: 540,
-
-        // The following css will be injected into the editor, extending
-        // the default styles.
-        // In a real world scenario, it's recommended to use the content_css
-        // option to load a separate CSS file. This makes editing easier too.
-        // https://www.tiny.cloud/docs/tinymce/6/add-css-options/
-        content_style: `
-          img {
-            height: auto;
-            margin: auto;
-            padding: 10px;
-            display: block;
-          }
-          img.medium {
-            max-width: 25%;
-          }
-        `
-
-        // Next step: Check out Tiny Drive for easy cloud storage of your users'
-        // images and media. Integrates seamlessly with TinyMCE.
-        // https://www.tiny.cloud/drive/
-      });
-    </script>
+        table_responsive_width: true,
+        table_appearance_options: false
+    });
+</script>
 
 <!-- footer -->
 

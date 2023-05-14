@@ -4,8 +4,8 @@
 <a href="blog_article?<?php echo md5($hp_id); ?>&post_key=<?php echo $hp_id; ?>" title="<?php echo $hp_title; ?>">
 <!-- content -->
  <!-- post_image -->
- <div class="post__image w-full  lg:h-[200px] overflow-hidden">
-        <img src="images/<?php echo $hp_cim; ?>" alt="<?php echo $hp_title; ?>" class="w-full h-full  object-cover">
+ <div class="post__image w-full h-[200px] overflow-hidden">
+        <img src="images/<?php echo $hp_cim; ?>" alt="<?php echo $hp_title; ?>" class="w-full h-full  object-contain">
       </div>
 <!-- post descibtion -->
 <div class="dexcs my-2 px-2">

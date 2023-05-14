@@ -20,7 +20,7 @@ while($row = $get_cat->fetch_assoc()) {
 
       <div class=" w-1/2 lg:w-2/5 h-full overflow-hidden">
        <a class="w-full h-full" href="blog_article?cat_key=<?php echo $op_id; ?>" title="<?php echo $op_title; ?>">
-        <img src="images/<?php echo $op_cim; ?>" alt="<?php echo $op_title; ?>" class="w-full h-full object-cover rounded-md">
+        <img src="images/<?php echo $op_cim; ?>" alt="<?php echo $op_title; ?>" class="w-full h-full object-contain rounded-md">
        </a>
       </div>
 
